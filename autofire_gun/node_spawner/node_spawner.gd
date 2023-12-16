@@ -1,7 +1,8 @@
 extends Node2D
-## Spawns the node in the set scene
+## Spawns the node scene 
 ##
-## 
+## Spawns at the spawner's position
+
 
 @export var nodeScene:PackedScene = null
 
@@ -11,6 +12,7 @@ func _ready():
 	
 
 func _spawn_node():
-	var node = nodeScene.instantiate()
+	var node:Node = nodeScene.instantiate()
 	add_child(node)
-	
+	node.position = global_position
+	node.top_level = true
