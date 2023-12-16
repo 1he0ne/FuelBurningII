@@ -13,6 +13,9 @@ rotation = 3.14159
 scale = Vector2(2, 2)
 texture = ExtResource("1_t7aen")
 
+[node name="Guns" type="Node" parent="."]
+unique_name_in_owner = true
+
 [node name="AutofireGun" parent="." instance=ExtResource("2_buq5n")]
 position = Vector2(-20, 16)
 

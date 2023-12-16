@@ -6,13 +6,19 @@ extends Area2D
 
 @export var fadeout_time = 0.4
 
+func _ready():
+	%ExplosionAnimation.visible = false
+
 
 func _on_area_entered(area: Area2D) -> void:
 	print("enemy hit")
 	
 	fade_out_and_delete(get_parent())
 	
+	%Guns.queue_free()
+	
 	%ExplosionAnimation.position = global_position
+	%ExplosionAnimation.visible = true
 	%ExplosionAnimation.play()
 	
 
