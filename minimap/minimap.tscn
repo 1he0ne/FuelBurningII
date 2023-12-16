@@ -1,9 +1,6 @@
-[gd_scene format=3 uid="uid://cbcsqjiv5vdbh"]
+[gd_scene load_steps=2 format=3 uid="uid://5c33n14fqned"]
 
-[node name="Minimap" type="Node"]
+[ext_resource type="Script" path="res://minimap/roguelikeMap.gd" id="1_u5j15"]
 
-[node name="Button" type="Button" parent="."]
-offset_left = 6.0
-offset_top = 8.0
-offset_right = 14.0
-offset_bottom = 16.0
+[node name="Minimap" type="Node2D"]
+script = ExtResource("1_u5j15")
