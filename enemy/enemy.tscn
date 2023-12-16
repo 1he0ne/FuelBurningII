@@ -1,26 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://opaijxv11qhu"]
+[gd_scene load_steps=6 format=3 uid="uid://opaijxv11qhu"]
 
-[ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="1_0348d"]
+[ext_resource type="Texture2D" uid="uid://cc4jkgqntrj8t" path="res://artAssets/EnemyShip1/enemyShip1.png" id="1_t7aen"]
 [ext_resource type="PackedScene" uid="uid://c2krrrwn06ou" path="res://autofire_gun/autofire_gun.tscn" id="2_buq5n"]
 [ext_resource type="Script" path="res://enemy/enemy_bullet_hitbox.gd" id="3_2s82g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_aehht"]
-size = Vector2(128, 143)
+[ext_resource type="Shape2D" uid="uid://dgnhulm8575oa" path="res://enemy/enemy_bullet_hitbox.tres" id="4_w1vjp"]
+[ext_resource type="PackedScene" uid="uid://d0jmjt1osxiy0" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
 
 [node name="Enemy" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.184314, 0.184314, 0.184314, 1)
-texture = ExtResource("1_0348d")
+rotation = 3.14159
+scale = Vector2(2, 2)
+texture = ExtResource("1_t7aen")
+
+[node name="Guns" type="Node" parent="."]
+unique_name_in_owner = true
 
 [node name="AutofireGun" parent="." instance=ExtResource("2_buq5n")]
-position = Vector2(-37, 66)
+position = Vector2(-20, 16)
 
 [node name="AutofireGun2" parent="." instance=ExtResource("2_buq5n")]
-position = Vector2(1, 67)
+position = Vector2(-2, 20)
 
 [node name="AutofireGun3" parent="." instance=ExtResource("2_buq5n")]
-position = Vector2(37, 66)
+position = Vector2(16, 16)
 
 [node name="BulletHitbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -28,7 +31,13 @@ collision_mask = 4
 script = ExtResource("3_2s82g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]
-position = Vector2(0, 7.5)
-shape = SubResource("RectangleShape2D_aehht")
+visible = false
+shape = ExtResource("4_w1vjp")
+
+[node name="ExplosionAnimation" parent="." instance=ExtResource("5_exn24")]
+unique_name_in_owner = true
+top_level = true
+scale = Vector2(2.5, 2.5)
+speed_scale = 4.0
 
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]

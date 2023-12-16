@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uesvnu6nhjdd"
-path="res://.godot/imported/explosionSmokeFrame2.png-0d76993ec96dc1f0149e45ca3cb00d19.ctex"
+uid="uid://c8adw4j430mlf"
+path="res://.godot/imported/exclamationLarge.png-29db8a91b55d0bab5d9c706fb24bb99a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artAssets/ExplosionSmoke/explosionSmokeFrame2.png"
-dest_files=["res://.godot/imported/explosionSmokeFrame2.png-0d76993ec96dc1f0149e45ca3cb00d19.ctex"]
+source_file="res://artAssets/MapIcons/exclamationLarge.png"
+dest_files=["res://.godot/imported/exclamationLarge.png-29db8a91b55d0bab5d9c706fb24bb99a.ctex"]
 
 [params]
 

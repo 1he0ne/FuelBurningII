@@ -1,12 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://lcddkaa0xg42"]
+[gd_scene load_steps=3 format=3 uid="uid://lcddkaa0xg42"]
 
 [ext_resource type="PackedScene" uid="uid://dlyemo4h8hs4v" path="res://autofire_gun/bullet/bullet.tscn" id="1_au67w"]
+[ext_resource type="Shape2D" uid="uid://btc4idkfkn76y" path="res://character/character_bullet_hitbox.tres" id="2_lrp8y"]
 
 [node name="PlayerBullet" instance=ExtResource("1_au67w")]
 velocity = Vector2(0, -5)
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0, 0.886275, 0.333333, 1)
+scale = Vector2(0.0546875, 0.117188)
 
 [node name="Area2D" parent="." index="2"]
 collision_layer = 4
+
+[node name="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(3.5, 7.5)
+shape = ExtResource("2_lrp8y")

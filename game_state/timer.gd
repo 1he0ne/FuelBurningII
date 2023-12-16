@@ -37,8 +37,8 @@ func _physics_process(_delta):
 	if is_running:
 		frames_left = frames_left - 1
 		
-	if frames_left % 100 == 0:
-		print("frames_left %s" % frames_left)
+	#if frames_left % 100 == 0:
+	#	print("frames_left %s" % frames_left)
 
 func get_remaining_frames() -> int:
 	return frames_left

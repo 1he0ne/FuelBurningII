@@ -1,17 +1,17 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw6tylxvq44yt"]
+[gd_scene load_steps=12 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="1_kdy08"]
-[ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://Art assets/PlayerShip/default.png" id="2_wlpm3"]
+[ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://artAssets/PlayerShip/default.png" id="2_wlpm3"]
 [ext_resource type="Script" path="res://character/fire_player_guns.gd" id="3_dyaye"]
-[ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://Art assets/PlayerShip/left.png" id="3_p8jx8"]
+[ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://artAssets/PlayerShip/left.png" id="3_p8jx8"]
 [ext_resource type="PackedScene" uid="uid://b3yyuo0md5ojv" path="res://autofire_gun/node_spawner/node_spawner.tscn" id="3_rep5q"]
-[ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://Art assets/PlayerShip/right.png" id="4_qdpuo"]
+[ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://artAssets/PlayerShip/right.png" id="4_qdpuo"]
 [ext_resource type="PackedScene" uid="uid://lcddkaa0xg42" path="res://character/player_bullet.tscn" id="5_r8dlp"]
 [ext_resource type="Script" path="res://character/character_bullet_hitbox.gd" id="6_r1d5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
-size = Vector2(126, 125)
+size = Vector2(117, 78)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_crxjd"]
 animations = [{
@@ -33,6 +33,19 @@ animations = [{
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_iajnt")
 
+[node name="BulletHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("6_r1d5k")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]
+position = Vector2(1.5, 8)
+shape = SubResource("RectangleShape2D_d5y84")
+metadata/_edit_lock_ = true
+metadata/_edit_group_ = true
+
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_crxjd")
 animation = &"top_right_left"
@@ -46,20 +59,11 @@ texture = ExtResource("1_kdy08")
 script = ExtResource("3_dyaye")
 
 [node name="NodeSpawner" parent="FirePlayerGuns" instance=ExtResource("3_rep5q")]
-position = Vector2(-38, -50)
+position = Vector2(-25, -29)
 nodeScene = ExtResource("5_r8dlp")
 
 [node name="NodeSpawner2" parent="FirePlayerGuns" instance=ExtResource("3_rep5q")]
-position = Vector2(40, -49)
+position = Vector2(23, -29)
 nodeScene = ExtResource("5_r8dlp")
-
-[node name="BulletHitbox" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("6_r1d5k")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]
-position = Vector2(0, -0.5)
-shape = SubResource("RectangleShape2D_d5y84")
 
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]
