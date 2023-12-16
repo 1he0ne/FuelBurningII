@@ -5,6 +5,20 @@
 [node name="AudioPlayer" type="Node"]
 script = ExtResource("1_8082o")
 
-[node name="SFX" type="AudioStreamPlayer" parent="."]
+[node name="SFX8" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX7" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX6" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX5" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX4" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX3" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX2" type="AudioStreamPlayer" parent="."]
+
+[node name="SFX1" type="AudioStreamPlayer" parent="."]
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
