@@ -23,9 +23,11 @@ const lower_threshold = 1080
 const left_threshold = 70
 const right_threshold = 580
 
+
 func _ready():
 	camRef = %CharacterCamera
 	animRef = $CharacterSprite
+
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -58,3 +60,4 @@ func _physics_process(_delta):
 	# print("Cam: %s | Player: %s" % [cam_offset_position, position.y])
 		
 	var _collisions = move_and_slide()
+
