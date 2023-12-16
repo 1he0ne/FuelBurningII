@@ -1,15 +1,41 @@
-[gd_scene load_steps=6 format=3 uid="uid://bw6tylxvq44yt"]
+[gd_scene load_steps=10 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="1_kdy08"]
+[ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://Art assets/PlayerShip/default.png" id="2_wlpm3"]
 [ext_resource type="Script" path="res://character/fire_player_guns.gd" id="3_dyaye"]
+[ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://Art assets/PlayerShip/left.png" id="3_p8jx8"]
 [ext_resource type="PackedScene" uid="uid://b3yyuo0md5ojv" path="res://autofire_gun/node_spawner/node_spawner.tscn" id="3_rep5q"]
+[ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://Art assets/PlayerShip/right.png" id="4_qdpuo"]
 [ext_resource type="PackedScene" uid="uid://lcddkaa0xg42" path="res://character/player_bullet.tscn" id="5_r8dlp"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_crxjd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_wlpm3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_p8jx8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_qdpuo")
+}],
+"loop": true,
+"name": &"top_right_left",
+"speed": 0.0
+}]
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_iajnt")
 
+[node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_crxjd")
+animation = &"top_right_left"
+frame_progress = 1.0
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 texture = ExtResource("1_kdy08")
 
 [node name="FirePlayerGuns" type="Node2D" parent="."]

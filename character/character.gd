@@ -10,6 +10,8 @@ var character_world_position: float = 0.0
 
 var camRef:Camera2D
 
+var animRef:AnimatedSprite2D
+
 # how far above camera 0 the camera follows the player
 #const cam_y_threshold = -1000
 const upper_threshold = 600
@@ -23,6 +25,7 @@ const right_threshold = 580
 
 func _ready():
 	camRef = %CharacterCamera
+	animRef = $CharacterSprite
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -43,8 +46,15 @@ func _physics_process(_delta):
 		
 	if (direction.x < 0 && position.x < left_threshold) || (direction.x > 0 && position.x > right_threshold) : 
 		velocity.x = 0
+		
+	# use frame based on x-velocity
+	if velocity.x < 0:
+		animRef.set_frame_and_progress(2, 0.0)
+	elif velocity.x > 0:
+		animRef.set_frame_and_progress(1, 0.0)
+	else:
+		animRef.set_frame_and_progress(0, 0.0)
 	
 	# print("Cam: %s | Player: %s" % [cam_offset_position, position.y])
-	print(position.x) #582, 72
 		
 	var _collisions = move_and_slide()
