@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://fru47kimgmmg"
+=======
+uid="uid://dd1mt1e5jqwa4"
+>>>>>>> main
 path="res://.godot/imported/Red Effect Bullet Impact Explosion 32x32.png-cd07396b7df92ea0004375c7c9352a57.ctex"
 metadata={
 "vram_texture": false

@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://cgdrg354wn6yg"
+=======
+uid="uid://cnkiyeunfug23"
+>>>>>>> main
 path="res://.godot/imported/explosionsmokeArray.png-c3d2208973af7c73c88bc8133c64c96d.ctex"
 metadata={
 "vram_texture": false

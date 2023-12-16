@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< HEAD
-uid="uid://dx3x72h7ib1dp"
-=======
-uid="uid://cksh7ery85pnf"
->>>>>>> main
-path="res://.godot/imported/Purple Effect Bullet Impact Explosion 32x32.png-cfaf30e4c8e1dacba3b7142dc18d3e8c.ctex"
+uid="uid://bodj8gvxhisal"
+path="res://.godot/imported/smallExplosion10020.webp.webp-0c9bc8ff095b354b3fbc706dd6e25996.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://artAssets/AllBulletsAndExplosions/Purple Effect Bullet Impact Explosion 32x32.png"
-dest_files=["res://.godot/imported/Purple Effect Bullet Impact Explosion 32x32.png-cfaf30e4c8e1dacba3b7142dc18d3e8c.ctex"]
+source_file="res://artAssets/ExplosionSmoke/smallExplosion1/smallExplosion10020.webp.webp"
+dest_files=["res://.godot/imported/smallExplosion10020.webp.webp-0c9bc8ff095b354b3fbc706dd6e25996.ctex"]
 
 [params]
 
