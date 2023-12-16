@@ -6,6 +6,23 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+var character_world_position: float = 0.0
+
+var camRef:Camera2D
+
+# how far above camera 0 the camera follows the player
+#const cam_y_threshold = -1000
+const upper_threshold = 600
+
+# how far below camera 0 the player can't move back anymore
+const lower_threshold = 1080
+
+# how far the player may use left/right
+const left_threshold = 70
+const right_threshold = 580
+
+func _ready():
+	camRef = %CharacterCamera
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -13,13 +30,21 @@ func _physics_process(_delta):
 	var direction = Vector2(Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down") )
 		
-	if direction:
-		velocity = direction * SPEED
-	else:
-		velocity = Vector2.ZERO
+	var cam_offset_position = camRef.position.y
+	
+	# update the camera, if the player moves up (but don't move it back down ever)
+	if position.y < cam_offset_position+upper_threshold:
+		camRef.position.y = position.y-upper_threshold
+	
+	velocity = direction * SPEED
+	
+	if direction.y > 0 && (position.y - cam_offset_position > lower_threshold):
+		velocity.y = 0	
+		
+	if (direction.x < 0 && position.x < left_threshold) || (direction.x > 0 && position.x > right_threshold) : 
+		velocity.x = 0
+	
+	# print("Cam: %s | Player: %s" % [cam_offset_position, position.y])
+	print(position.x) #582, 72
 		
 	var _collisions = move_and_slide()
-
-#print("player knows they entered") #why player would want to know???
-func _on_area_2d_area_entered(_area):
-	pass

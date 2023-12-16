@@ -26,7 +26,7 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# if we have pause frames, don't tick down the regular frames
 	if pause_frames_left > 0:
 		pause_frames_left = pause_frames_left - 1
