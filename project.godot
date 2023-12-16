@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 GlobalTimer="*res://game_state/timer.gd"
+AudioPlayer="*res://audioPlayer/audio_player.tscn"
 
 [display]
 
