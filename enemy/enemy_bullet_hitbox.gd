@@ -12,6 +12,9 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	fade_out_and_delete(get_parent())
 	
+	%ExplosionAnimation.position = global_position
+	%ExplosionAnimation.play()
+	
 
 func fade_out_and_delete(node):
 	var tween = create_tween()

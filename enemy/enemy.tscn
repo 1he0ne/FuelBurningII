@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://opaijxv11qhu"]
+[gd_scene load_steps=6 format=3 uid="uid://opaijxv11qhu"]
 
 [ext_resource type="Texture2D" uid="uid://cc4jkgqntrj8t" path="res://artAssets/EnemyShip1/enemyShip1.png" id="1_t7aen"]
 [ext_resource type="PackedScene" uid="uid://c2krrrwn06ou" path="res://autofire_gun/autofire_gun.tscn" id="2_buq5n"]
 [ext_resource type="Script" path="res://enemy/enemy_bullet_hitbox.gd" id="3_2s82g"]
 [ext_resource type="Shape2D" uid="uid://dgnhulm8575oa" path="res://enemy/enemy_bullet_hitbox.tres" id="4_w1vjp"]
+[ext_resource type="PackedScene" uid="uid://d0jmjt1osxiy0" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
 
 [node name="Enemy" type="Node2D"]
 
@@ -22,12 +23,20 @@ position = Vector2(-2, 20)
 position = Vector2(16, 16)
 
 [node name="BulletHitbox" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 4
 script = ExtResource("3_2s82g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]
+visible = false
 shape = ExtResource("4_w1vjp")
+
+[node name="ExplosionAnimation" parent="." instance=ExtResource("5_exn24")]
+unique_name_in_owner = true
+top_level = true
+scale = Vector2(2.5, 2.5)
+frame = 10
+frame_progress = 1.0
+speed_scale = 4.0
 
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]
