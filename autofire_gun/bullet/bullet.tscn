@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://dlyemo4h8hs4v"]
+[gd_scene load_steps=4 format=3 uid="uid://dlyemo4h8hs4v"]
 
 [ext_resource type="Script" path="res://autofire_gun/bullet/bullet.gd" id="1_u105v"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_7x35t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ptm"]
+size = Vector2(11, 69)
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_u105v")
@@ -15,5 +18,13 @@ centered = false
 [node name="DeleteTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(5.5, 34.5)
+shape = SubResource("RectangleShape2D_f2ptm")
 
 [connection signal="timeout" from="DeleteTimer" to="." method="queue_free"]

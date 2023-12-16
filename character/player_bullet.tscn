@@ -7,3 +7,6 @@ velocity = Vector2(0, -5)
 
 [node name="Sprite2D" parent="." index="0"]
 modulate = Color(0, 0.886275, 0.333333, 1)
+
+[node name="Area2D" parent="." index="2"]
+collision_layer = 4
