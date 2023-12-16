@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://csjcjj06yfbpu"
+path="res://.godot/imported/upgradecollected1.wav-47e217c163947066d15d666e6b72a664.sample"
+
+[deps]
+
+source_file="res://Audio assets/upgradecollected1.wav"
+dest_files=["res://.godot/imported/upgradecollected1.wav-47e217c163947066d15d666e6b72a664.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
