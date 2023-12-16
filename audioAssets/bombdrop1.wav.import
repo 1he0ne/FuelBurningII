@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://cnuyxb6vwu715"
-path="res://.godot/imported/bombdrop1.wav-2286e943698a78f264127bb95cefb8b8.sample"
+path="res://.godot/imported/bombdrop1.wav-852b288eaba1aa6fe0ef8366f976326c.sample"
 
 [deps]
 
-source_file="res://Audio assets/bombdrop1.wav"
-dest_files=["res://.godot/imported/bombdrop1.wav-2286e943698a78f264127bb95cefb8b8.sample"]
+source_file="res://audioAssets/bombdrop1.wav"
+dest_files=["res://.godot/imported/bombdrop1.wav-852b288eaba1aa6fe0ef8366f976326c.sample"]
 
 [params]
 
