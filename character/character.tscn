@@ -1,17 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://bw6tylxvq44yt"]
+[gd_scene load_steps=12 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="1_kdy08"]
-[ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://Art assets/PlayerShip/default.png" id="2_wlpm3"]
+[ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://artAssets/PlayerShip/default.png" id="2_wlpm3"]
 [ext_resource type="Script" path="res://character/fire_player_guns.gd" id="3_dyaye"]
-[ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://Art assets/PlayerShip/left.png" id="3_p8jx8"]
+[ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://artAssets/PlayerShip/left.png" id="3_p8jx8"]
 [ext_resource type="PackedScene" uid="uid://b3yyuo0md5ojv" path="res://autofire_gun/node_spawner/node_spawner.tscn" id="3_rep5q"]
-[ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://Art assets/PlayerShip/right.png" id="4_qdpuo"]
+[ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://artAssets/PlayerShip/right.png" id="4_qdpuo"]
 [ext_resource type="PackedScene" uid="uid://lcddkaa0xg42" path="res://character/player_bullet.tscn" id="5_r8dlp"]
 [ext_resource type="Script" path="res://character/character_bullet_hitbox.gd" id="6_r1d5k"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
-size = Vector2(126, 125)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_crxjd"]
 animations = [{
@@ -29,6 +26,9 @@ animations = [{
 "name": &"top_right_left",
 "speed": 0.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
+size = Vector2(126, 125)
 
 [node name="Character" type="CharacterBody2D"]
 script = ExtResource("1_iajnt")
