@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://lcddkaa0xg42"]
+
+[ext_resource type="PackedScene" uid="uid://dlyemo4h8hs4v" path="res://autofire_gun/bullet/bullet.tscn" id="1_au67w"]
+
+[node name="PlayerBullet" instance=ExtResource("1_au67w")]
+velocity = Vector2(0, -5)
+
+[node name="Sprite2D" parent="." index="0"]
+modulate = Color(0, 0.886275, 0.333333, 1)
