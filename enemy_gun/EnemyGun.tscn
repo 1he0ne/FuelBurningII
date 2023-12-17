@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://yy3hj70rc16a"]
+
+[ext_resource type="Script" path="res://enemy_gun/EnemyGun.gd" id="1_22dg1"]
+
+[node name="EnemyGun" type="Node2D"]
+script = ExtResource("1_22dg1")
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="WaitTimer" to="." method="_on_wait_timer_timeout"]
