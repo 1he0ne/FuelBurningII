@@ -14,6 +14,13 @@ func _ready():
 	bullets_container = get_tree().get_nodes_in_group("bullets_container")[0]
 	player = get_tree().get_nodes_in_group("player")[0]
 
+func init_aimed_shot(speed):
+	instructions = [
+		[ AIM_AT_PLAYER ],
+		[ FIRE, { "speed": speed, "angle": 0.0 } ],
+		[ WAIT, 0.5 ]
+	]
+
 func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
