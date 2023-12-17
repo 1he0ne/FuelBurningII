@@ -23,7 +23,8 @@ func _ready():
 		4:
 			gun.init_double_lines()
 
-	gun.start()
+	#delay so they do not fire before being disabled (to be enabled later) 
+	gun.start(0.1)
 
 func _process(_delta):
 	pass

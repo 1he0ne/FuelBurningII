@@ -26,7 +26,8 @@ func _ready():
 	animRef = $CharacterSprite
 	
 	#enabled the hitbox
-	$EndgameHitbox.visible = true
+	$ActivateEventsHitbox.visible = true
+	
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
