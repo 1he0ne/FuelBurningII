@@ -12,6 +12,9 @@ func create_bullet(position, velocity):
 	add_child(bullet)
 
 func destroy_all_bullets():
+	var count = 0
 	var all_children = get_children()
 	for child in all_children:
+		count += 1
 		child.queue_free()
+	print("Bullets destroyed: %s" % count)

@@ -4,14 +4,15 @@
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_7x35t"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f2ptm"]
-size = Vector2(5, 11)
+size = Vector2(12, 22)
 
 [node name="Bullet" type="Node2D"]
 script = ExtResource("1_u105v")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 0.337255, 1)
-scale = Vector2(0.0390625, 0.09375)
+position = Vector2(-7, -13)
+scale = Vector2(0.109375, 0.203125)
 texture = ExtResource("2_7x35t")
 centered = false
 
@@ -24,7 +25,6 @@ collision_layer = 2
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(2.5, 6)
 shape = SubResource("RectangleShape2D_f2ptm")
 
 [connection signal="timeout" from="DeleteTimer" to="." method="queue_free"]

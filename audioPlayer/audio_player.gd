@@ -28,7 +28,7 @@ func play_sfx(wav_to_play: AudioStreamWAV, volume: float = 1.0):
 	
 func play_bgm(wav_to_play: AudioStreamWAV, volume: float = 1.0):
 	$BGM.stream = wav_to_play
-	var db = 10.0 * log(volume*bgm_volume/100.0)
+	var _db = 10.0 * log(volume*bgm_volume/100.0)
 	$BGM.play()
 	
 func set_sfx_volume():
@@ -40,5 +40,5 @@ func set_bgm_volume():
 
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
