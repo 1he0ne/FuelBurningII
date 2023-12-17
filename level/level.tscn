@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=11 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_u0rdm"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://level/BulletsContainer.gd" id="3_o2pmo"]
 [ext_resource type="PackedScene" uid="uid://opaijxv11qhu" path="res://enemy/enemy.tscn" id="3_yo2l2"]
 [ext_resource type="PackedScene" uid="uid://dxidc1nd2qd0y" path="res://pickup/bomb_pickup.tscn" id="5_hnb1k"]
+[ext_resource type="Script" path="res://level/EndArea.gd" id="7_efc5s"]
 
 [sub_resource type="Curve2D" id="Curve2D_hc4u3"]
 _data = {
@@ -18,6 +19,9 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 395, -109, 0, 0, 0, 0, 396, -109, 0, 0, 0, 0, 781, -108, 0, 0, 0, 0, 395, -109)
 }
 point_count = 4
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b10tu"]
+size = Vector2(647, 20)
 
 [node name="Level" type="Node"]
 
@@ -120,3 +124,17 @@ script = ExtResource("3_iy6oa")
 
 [node name="BombPickup" parent="." instance=ExtResource("5_hnb1k")]
 position = Vector2(332, 554)
+
+[node name="EndArea" type="Area2D" parent="."]
+position = Vector2(335, -700)
+collision_layer = 8
+collision_mask = 8
+script = ExtResource("7_efc5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndArea"]
+position = Vector2(-11.5, 0)
+shape = SubResource("RectangleShape2D_b10tu")
+debug_color = Color(0, 0.65098, 0.0823529, 0.419608)
+metadata/_edit_lock_ = true
+
+[connection signal="area_entered" from="EndArea" to="EndArea" method="_on_area_entered"]

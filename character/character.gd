@@ -24,7 +24,9 @@ const right_threshold = 580
 func _ready():
 	camRef = %CharacterCamera
 	animRef = $CharacterSprite
-
+	
+	#enabled the hitbox
+	$EndgameHitbox.visible = true
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
