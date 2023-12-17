@@ -26,6 +26,13 @@ func _on_area_entered(area: Area2D) -> void:
 	hit_cue.instantiate_playback()
 		
 	var bullet_that_hit: Bullet = area.get_parent() as Bullet
+	
+	# if bullet_that_hit: 
+	###### do bullet stuff
+	# var bomb_that_hit: BombArea = area.get_parent() as BombArea
+	# if bomb_that_hit: 
+	####### do bomb stuff
+	
 	var bullet_damage: float = bullet_that_hit.damage
 	bullet_that_hit.queue_free()
 	

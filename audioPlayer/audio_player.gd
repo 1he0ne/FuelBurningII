@@ -16,9 +16,11 @@ func _ready():
 	# print("audio player loaded")
 	sfx_channels = [$SFX1, $SFX2, $SFX3, $SFX4, $SFX5, $SFX6, $SFX7, $SFX8]
 
-func play_sfx(wav_to_play: AudioStreamWAV):
+func play_sfx(wav_to_play: AudioStreamWAV, volume: float = 1.0):
 	var channel: AudioStreamPlayer = get_next_channel()
 	channel.stream = wav_to_play
+	var db = 10.0 * log(volume)
+	channel.volume_db = db
 	channel.play()
 	
 func play_bgm(wav_to_play: AudioStreamWAV):
