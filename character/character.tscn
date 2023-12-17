@@ -1,7 +1,6 @@
 [gd_scene load_steps=13 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
-[ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="1_kdy08"]
 [ext_resource type="Script" path="res://character/character_collision.gd" id="2_ho6ny"]
 [ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://artAssets/PlayerShip/default.png" id="2_wlpm3"]
 [ext_resource type="Script" path="res://character/fire_player_guns.gd" id="3_dyaye"]
@@ -12,7 +11,10 @@
 [ext_resource type="Script" path="res://character/fire_player_bomb.gd" id="10_56sne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
-size = Vector2(117, 78)
+size = Vector2(44, 42)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kgchd"]
+radius = 79.0063
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_crxjd"]
 animations = [{
@@ -31,7 +33,7 @@ animations = [{
 "speed": 0.0
 }]
 
-[node name="Character" type="CharacterBody2D"]
+[node name="Character" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iajnt")
 
 [node name="BulletHitbox" type="Area2D" parent="."]
@@ -42,19 +44,22 @@ metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BulletHitbox"]
-position = Vector2(1.5, 8)
 shape = SubResource("RectangleShape2D_d5y84")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
+
+[node name="EndgameHitbox" type="Area2D" parent="."]
+collision_layer = 8
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EndgameHitbox"]
+shape = SubResource("CircleShape2D_kgchd")
+debug_color = Color(6.257e-07, 0.638682, 0.38128, 0.419608)
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_crxjd")
 animation = &"top_right_left"
 frame_progress = 1.0
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("1_kdy08")
 
 [node name="FirePlayerGuns" type="Node2D" parent="."]
 script = ExtResource("3_dyaye")

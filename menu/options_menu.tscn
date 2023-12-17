@@ -1,0 +1,131 @@
+[gd_scene load_steps=2 format=3 uid="uid://blph872wpdu5a"]
+
+[ext_resource type="Script" path="res://menu/options_menu.gd" id="1_42cvn"]
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_42cvn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 49.0
+offset_top = 29.0
+offset_right = 446.0
+offset_bottom = 204.0
+text = "These are the options. Press ESC to return :)
+
+Left/Right to adjust volume
+Up/Down to select BGM / SFX"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 113.0
+offset_top = 228.0
+offset_right = 381.0
+offset_bottom = 286.0
+
+[node name="sfx_volume_bar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+step = 5.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/sfx_volume_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_right = -2.0
+offset_bottom = 40.0
+mouse_filter = 2
+text = "SFX"
+fit_content = true
+
+[node name="ButtonSFXMinus" type="Button" parent="VBoxContainer/sfx_volume_bar"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 2.0
+offset_right = 297.0
+offset_bottom = 22.0
+focus_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/sfx_volume_bar/ButtonSFXMinus"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 22.0
+mouse_filter = 2
+text = "-"
+
+[node name="ButtonSFXPlus" type="Button" parent="VBoxContainer/sfx_volume_bar"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 22.0
+focus_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/sfx_volume_bar/ButtonSFXPlus"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 27.0
+offset_bottom = 23.0
+mouse_filter = 2
+text = "+"
+
+[node name="bgm_volume_bar" type="ProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+step = 5.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/bgm_volume_bar"]
+layout_mode = 0
+offset_left = -42.0
+offset_right = -2.0
+offset_bottom = 40.0
+mouse_filter = 2
+text = "BGM"
+fit_content = true
+
+[node name="ButtonBGMMinus" type="Button" parent="VBoxContainer/bgm_volume_bar"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 2.0
+offset_right = 297.0
+offset_bottom = 22.0
+focus_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/bgm_volume_bar/ButtonBGMMinus"]
+layout_mode = 0
+offset_left = 7.0
+offset_top = -3.0
+offset_right = 29.0
+offset_bottom = 22.0
+mouse_filter = 2
+text = "-"
+
+[node name="ButtonBGMPlus" type="Button" parent="VBoxContainer/bgm_volume_bar"]
+layout_mode = 0
+offset_left = 301.0
+offset_top = 2.0
+offset_right = 321.0
+offset_bottom = 22.0
+focus_mode = 0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/bgm_volume_bar/ButtonBGMPlus"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -2.0
+offset_right = 27.0
+offset_bottom = 23.0
+mouse_filter = 2
+text = "+"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 45.0
+offset_top = 341.0
+offset_right = 131.0
+offset_bottom = 384.0
+text = "Back"
+
+[connection signal="gui_input" from="VBoxContainer/sfx_volume_bar" to="." method="_on_progress_bar_gui_input"]
+[connection signal="button_up" from="VBoxContainer/sfx_volume_bar/ButtonSFXMinus" to="." method="_on_sfx_minus"]
+[connection signal="button_up" from="VBoxContainer/sfx_volume_bar/ButtonSFXPlus" to="." method="_on_sfx_plus"]
+[connection signal="gui_input" from="VBoxContainer/bgm_volume_bar" to="." method="_on_progress_bar_gui_input"]
+[connection signal="button_up" from="VBoxContainer/bgm_volume_bar/ButtonBGMMinus" to="." method="_on_bgm_minus"]
+[connection signal="button_up" from="VBoxContainer/bgm_volume_bar/ButtonBGMPlus" to="." method="_on_bgm_plus"]
+[connection signal="button_up" from="Button" to="." method="_on_back_button_pressed"]

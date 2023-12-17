@@ -37,7 +37,7 @@ func _physics_process(_delta):
 		start_timer()
 	
 	if is_running:
-		frames_left = frames_left - 1
+		frames_left = maxi(frames_left - 1, 0)
 		
 	#if frames_left % 100 == 0:
 	#	print("frames_left %s" % frames_left)
