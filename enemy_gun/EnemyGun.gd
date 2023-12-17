@@ -87,7 +87,7 @@ func init_spiral():
 		[ WAIT, 0.05 ]
 	]
 
-func init_spam(interval):
+func init_spam():
 	instructions = [
 		[ FIRE, { "speed": [3.0, 10.0] } ],
 		[ TURN, [10.0, 350.0] ],
@@ -95,7 +95,7 @@ func init_spam(interval):
 		[ TURN, [10.0, 350.0] ],
 		[ FIRE, { "speed": [3.0, 10.0] } ],
 		[ TURN, [10.0, 350.0] ],
-		[ WAIT, interval ]
+		[ WAIT, 0.05 ]
 	]
 
 func init_turret_fire():
