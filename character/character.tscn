@@ -11,7 +11,7 @@
 [ext_resource type="Script" path="res://character/fire_player_bomb.gd" id="10_56sne"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
-size = Vector2(44, 42)
+size = Vector2(26, 28)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kgchd"]
 radius = 79.0063
@@ -57,6 +57,7 @@ shape = SubResource("CircleShape2D_kgchd")
 debug_color = Color(6.257e-07, 0.638682, 0.38128, 0.419608)
 
 [node name="CharacterSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(-1, 8)
 sprite_frames = SubResource("SpriteFrames_crxjd")
 animation = &"top_right_left"
 frame_progress = 1.0
