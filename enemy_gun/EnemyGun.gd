@@ -27,6 +27,38 @@ func init_aimed_alternating_spread():
 		[ WAIT, 1.5 ]
 	]
 
+func init_spiral():
+	turn(randf_range(0.0, 360.0))
+	instructions = [
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 40.0 ],
+		[ WAIT, 0.05 ]
+	]
+
 func start(initial_delay = 0.0):
 	if initial_delay == 0.0:
 		execute()
