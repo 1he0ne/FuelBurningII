@@ -19,4 +19,4 @@ func _frames_to_time(frames: int) -> String:
 	frames = frames / 60
 	
 	var hours = frames # you could add more modulo and divisions for days, etc.
-	return "%02d h, %02d m, %02d.%02d s" % [hours, minutes, seconds, fractions]
+	return "%02d:%02d:%02d.%02ds" % [hours, minutes, seconds, fractions]
