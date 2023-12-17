@@ -21,18 +21,18 @@ func _ready():
 func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
-		[ FIRE, { "angle": -10.0 }],
-		[ FIRE, { "angle": null } ],
-		[ FIRE, { "angle": 10.0 }],
+		[ FIRE, { "speed": 5.0, "angle": -10.0 }],
+		[ FIRE, { "speed": 5.0, "angle": null } ],
+		[ FIRE, { "speed": 5.0, "angle": 10.0 }],
 		[ WAIT, 0.2 ],
 		[ AIM_AT_PLAYER ],
-		[ FIRE, { "angle": -5.0 }],
-		[ FIRE, { "angle": 5.0 }],
+		[ FIRE, { "speed": 5.0, "angle": -5.0 }],
+		[ FIRE, { "speed": 5.0, "angle": 5.0 }],
 		[ WAIT, 1.5 ]
 	]
 
-func start(initial_delay = 0):
-	if initial_delay == 0:
+func start(initial_delay = 0.0):
+	if initial_delay == 0.0:
 		execute()
 	else:
 		wait(initial_delay)
@@ -63,12 +63,13 @@ func execute():
 
 func fire(params):
 	var vel = aim_dir.normalized()
+	var speed = params["speed"]
 	var angle = params["angle"]
 
 	if angle:
 		vel = vel.rotated(deg_to_rad(angle))
 
-	vel = vel * 5
+	vel = vel * speed
 
 	bullets_container.create_bullet(global_position, vel)
 
