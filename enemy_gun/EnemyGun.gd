@@ -98,6 +98,14 @@ func init_spam(interval):
 		[ WAIT, interval ]
 	]
 
+func init_turret_fire():
+	instructions = [
+		[ FIRE, { "speed": 7.0, "angle": -3.0 } ],
+		[ FIRE, { "speed": 7.2 } ],
+		[ FIRE, { "speed": 7.0, "angle": 3.0 } ],
+		[ WAIT, 1.0 ]
+	]
+
 func start(initial_delay = 0.0):
 	if initial_delay == 0.0:
 		execute()
