@@ -60,6 +60,7 @@ offset_bottom = 22.0
 focus_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/sfx_volume_bar/ButtonSFXPlus"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = -2.0
 offset_right = 27.0
@@ -81,6 +82,7 @@ text = "BGM"
 fit_content = true
 
 [node name="ButtonBGMMinus" type="Button" parent="VBoxContainer/bgm_volume_bar"]
+layout_mode = 0
 offset_left = 277.0
 offset_top = 2.0
 offset_right = 297.0
@@ -97,6 +99,7 @@ mouse_filter = 2
 text = "-"
 
 [node name="ButtonBGMPlus" type="Button" parent="VBoxContainer/bgm_volume_bar"]
+layout_mode = 0
 offset_left = 301.0
 offset_top = 2.0
 offset_right = 321.0
@@ -104,6 +107,7 @@ offset_bottom = 22.0
 focus_mode = 0
 
 [node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/bgm_volume_bar/ButtonBGMPlus"]
+layout_mode = 0
 offset_left = 5.0
 offset_top = -2.0
 offset_right = 27.0

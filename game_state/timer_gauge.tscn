@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c44fow237e1yu"]
+
+[ext_resource type="Script" path="res://game_state/timer_gauge.gd" id="1_2gvc2"]
+
+[node name="TimerGauge" type="Node2D"]
+script = ExtResource("1_2gvc2")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_right = 420.0
+offset_bottom = 57.0
