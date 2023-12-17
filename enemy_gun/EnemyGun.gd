@@ -153,7 +153,7 @@ func execute():
 			TURN:
 				turn(instr[1])
 
-func fire(params):
+func fire(params = {}):
 	var normalized_aim_dir = aim_dir.normalized()
 
 	var pos = global_position
