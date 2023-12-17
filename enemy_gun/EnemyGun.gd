@@ -129,6 +129,9 @@ func start(initial_delay = 0.0):
 	else:
 		wait(initial_delay)
 
+func stop():
+	wait_timer.stop()
+
 func execute():
 	if instructions.is_empty():
 		return
