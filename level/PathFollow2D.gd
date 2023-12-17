@@ -9,3 +9,10 @@ extends PathFollow2D
 
 func _physics_process(delta: float) -> void:
 	progress_ratio += delta * speed
+	
+
+func slowdown_path_follower_to_a_hault():
+	var tween = create_tween()
+	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+	tween.tween_property(self, "speed", 0.0, 0.5)
+	

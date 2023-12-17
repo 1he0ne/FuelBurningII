@@ -87,7 +87,7 @@ func init_spiral():
 		[ WAIT, 0.05 ]
 	]
 
-func init_spam(interval):
+func init_spam():
 	instructions = [
 		[ FIRE, { "speed": [3.0, 10.0] } ],
 		[ TURN, [10.0, 350.0] ],
@@ -95,7 +95,7 @@ func init_spam(interval):
 		[ TURN, [10.0, 350.0] ],
 		[ FIRE, { "speed": [3.0, 10.0] } ],
 		[ TURN, [10.0, 350.0] ],
-		[ WAIT, interval ]
+		[ WAIT, 0.05 ]
 	]
 
 func init_turret_fire():
@@ -106,11 +106,31 @@ func init_turret_fire():
 		[ WAIT, 1.0 ]
 	]
 
+func init_double_lines():
+	instructions = [
+		[ AIM_AT_PLAYER ],
+		[ FIRE, { "lateral_offset": -25.0 } ],
+		[ FIRE, { "lateral_offset": 25.0 } ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "lateral_offset": -25.0 } ],
+		[ FIRE, { "lateral_offset": 25.0 } ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "lateral_offset": -25.0 } ],
+		[ FIRE, { "lateral_offset": 25.0 } ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "lateral_offset": -25.0 } ],
+		[ FIRE, { "lateral_offset": 25.0 } ],
+		[ WAIT, 1.5 ],
+	]
+
 func start(initial_delay = 0.0):
 	if initial_delay == 0.0:
 		execute()
 	else:
 		wait(initial_delay)
+
+func stop():
+	wait_timer.stop()
 
 func execute():
 	if instructions.is_empty():
@@ -136,22 +156,31 @@ func execute():
 			TURN:
 				turn(instr[1])
 
-func fire(params):
-	var vel = aim_dir.normalized()
+func fire(params = {}):
+	var normalized_aim_dir = aim_dir.normalized()
+
+	var pos = global_position
+	var vel = normalized_aim_dir
 	var speed = params.get("speed", 5.0)
 	var angle = params.get("angle", 0.0)
+	var lateral_offset = params.get("lateral_offset", 0.0)
 
 	if speed is Array:
 		speed = randf_range(speed[0], speed[1])
 
-	if angle:
-		if angle is Array:
-			angle = randf_range(angle[0], angle[1])
-		vel = vel.rotated(deg_to_rad(angle))
+	if angle is Array:
+		angle = randf_range(angle[0], angle[1])
 
-	vel = vel * speed * bullet_speed_scale
+	if lateral_offset is Array:
+		lateral_offset = randf_range(lateral_offset[0], lateral_offset[1])
 
-	bullets_container.create_bullet(global_position, vel)
+	if lateral_offset != 0.0:
+		var offset = normalized_aim_dir.rotated(deg_to_rad(90.0)) * lateral_offset
+		pos += offset
+
+	vel = vel.rotated(deg_to_rad(angle)) * speed * bullet_speed_scale
+
+	bullets_container.create_bullet(pos, vel)
 
 func wait(time):
 	time *= (1.0 / fire_rate_scale)
