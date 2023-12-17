@@ -8,8 +8,28 @@ script = ExtResource("1_42cvn")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = 49.0
 offset_top = 29.0
-offset_right = 379.0
-offset_bottom = 253.0
+offset_right = 446.0
+offset_bottom = 139.0
 text = "These are the options. Press ESC to return :)
 
-Volume: 9001"
+Left/Right to adjust volume
+Up/Down to select BGM / SFX
+
+(WIP!)"
+
+[node name="sfx_volume_bar" type="ProgressBar" parent="."]
+offset_left = 124.0
+offset_top = 167.0
+offset_right = 360.0
+offset_bottom = 194.0
+step = 5.0
+
+[node name="bgm_volume_bar" type="ProgressBar" parent="."]
+offset_left = 126.0
+offset_top = 214.0
+offset_right = 362.0
+offset_bottom = 241.0
+step = 5.0
+
+[connection signal="gui_input" from="sfx_volume_bar" to="." method="_on_progress_bar_gui_input"]
+[connection signal="gui_input" from="bgm_volume_bar" to="." method="_on_progress_bar_gui_input"]
