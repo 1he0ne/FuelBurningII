@@ -17,7 +17,7 @@ func _ready():
 func init_aimed_shot(speed):
 	instructions = [
 		[ AIM_AT_PLAYER ],
-		[ FIRE, { "speed": speed, "angle": 0.0 } ],
+		[ FIRE, { "speed": speed } ],
 		[ WAIT, 0.5 ]
 	]
 
@@ -42,7 +42,7 @@ func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
 		[ FIRE, { "speed": 5.0, "angle": -10.0 }],
-		[ FIRE, { "speed": 5.0, "angle": null } ],
+		[ FIRE, { "speed": 5.0 } ],
 		[ FIRE, { "speed": 5.0, "angle": 10.0 }],
 		[ WAIT, 0.2 ],
 		[ AIM_AT_PLAYER ],
@@ -54,33 +54,44 @@ func init_aimed_alternating_spread():
 func init_spiral():
 	turn(randf_range(0.0, 360.0))
 	instructions = [
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 3.0 ],
 		[ WAIT, 0.05 ],
-		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ FIRE, { "speed": 4.0 }],
 		[ TURN, 40.0 ],
 		[ WAIT, 0.05 ]
+	]
+
+func init_spam(interval):
+	instructions = [
+		[ FIRE, { "speed": [3.0, 10.0] } ],
+		[ TURN, [10.0, 350.0] ],
+		[ FIRE, { "speed": [3.0, 10.0] } ],
+		[ TURN, [10.0, 350.0] ],
+		[ FIRE, { "speed": [3.0, 10.0] } ],
+		[ TURN, [10.0, 350.0] ],
+		[ WAIT, interval ]
 	]
 
 func start(initial_delay = 0.0):
@@ -115,8 +126,8 @@ func execute():
 
 func fire(params):
 	var vel = aim_dir.normalized()
-	var speed = params["speed"]
-	var angle = params["angle"]
+	var speed = params.get("speed", 5.0)
+	var angle = params.get("angle", 0.0)
 
 	if speed is Array:
 		speed = randf_range(speed[0], speed[1])
@@ -143,6 +154,9 @@ func aim_down():
 	aim_dir.y = 1
 
 func turn(degrees):
+	if degrees is Array:
+		degrees = randf_range(degrees[0], degrees[1])
+
 	aim_dir = aim_dir.rotated(deg_to_rad(degrees))
 
 func _on_wait_timer_timeout():
