@@ -1,0 +1,81 @@
+[gd_scene load_steps=17 format=3 uid="uid://dxidc1nd2qd0y"]
+
+[ext_resource type="Texture2D" uid="uid://b5ny5cu2g1s44" path="res://artAssets/BombPickup/BombPickup0000.png" id="1_0f7n4"]
+[ext_resource type="Script" path="res://pickup/bomb_pickup.gd" id="1_lqvhc"]
+[ext_resource type="Texture2D" uid="uid://8tr2rdtir0bh" path="res://artAssets/BombPickup/BombPickup0010.png" id="2_o8rnd"]
+[ext_resource type="Texture2D" uid="uid://dhxsfumu3s4m3" path="res://artAssets/BombPickup/BombPickup0020.png" id="3_idmtd"]
+[ext_resource type="Texture2D" uid="uid://bpdia22eiiu7o" path="res://artAssets/BombPickup/BombPickup0030.png" id="4_bc7he"]
+[ext_resource type="Texture2D" uid="uid://mrgk02ml7y65" path="res://artAssets/BombPickup/BombPickup0040.png" id="5_pad78"]
+[ext_resource type="Texture2D" uid="uid://d1u38y6a4xmre" path="res://artAssets/BombPickup/BombPickup0050.png" id="6_e8jef"]
+[ext_resource type="Texture2D" uid="uid://bqnfhgn2ql1dp" path="res://artAssets/BombPickup/BombPickup0060.png" id="7_b88wr"]
+[ext_resource type="Texture2D" uid="uid://cd0d4djeyu43p" path="res://artAssets/BombPickup/BombPickup0070.png" id="8_jj6jj"]
+[ext_resource type="Texture2D" uid="uid://barvtadt660ud" path="res://artAssets/BombPickup/BombPickup0080.png" id="9_mbk1p"]
+[ext_resource type="Texture2D" uid="uid://chb6e43ge1nhd" path="res://artAssets/BombPickup/BombPickup0090.png" id="10_efo3s"]
+[ext_resource type="Texture2D" uid="uid://dvwq7p2sdp6tq" path="res://artAssets/BombPickup/BombPickup0100.png" id="11_mctqu"]
+[ext_resource type="Texture2D" uid="uid://xotvd03ntw06" path="res://artAssets/BombPickup/BombPickup0110.png" id="12_7s61d"]
+[ext_resource type="Texture2D" uid="uid://cm4c5mwxul7gn" path="res://artAssets/BombPickup/BombPickup0120.png" id="13_2mlis"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vy6hi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0f7n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_o8rnd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_idmtd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bc7he")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_pad78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_e8jef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_b88wr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jj6jj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_mbk1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_efo3s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_mctqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_7s61d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_2mlis")
+}],
+"loop": true,
+"name": &"default",
+"speed": 30.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3djjd"]
+radius = 18.0
+
+[node name="BombPickup" type="Node2D"]
+script = ExtResource("1_lqvhc")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_vy6hi")
+frame = 9
+frame_progress = 0.920242
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="PickUpCollider" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_3djjd")

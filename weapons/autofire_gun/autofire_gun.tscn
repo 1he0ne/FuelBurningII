@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c2krrrwn06ou"]
 
-[ext_resource type="PackedScene" uid="uid://b3yyuo0md5ojv" path="res://autofire_gun/node_spawner/node_spawner.tscn" id="1_d3fdu"]
+[ext_resource type="PackedScene" uid="uid://b3yyuo0md5ojv" path="res://weapons/autofire_gun/node_spawner/node_spawner.tscn" id="1_d3fdu"]
 
 [node name="AutofireGun" type="Node2D"]
 

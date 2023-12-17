@@ -16,7 +16,9 @@ var pause_frames_left = 0
 var is_running = true
 
 
+var num_bombs = 1
 
+var num_extra_lives = 3
 
 ########## Functions
 
@@ -68,3 +70,23 @@ func spend_frames(num_frames: int) -> bool:
 func add_frames(num_frames: int):
 	print("added %s frames" % num_frames)
 	frames_left += num_frames
+
+
+func add_bombs(bombs_to_add: int):
+	num_bombs = num_bombs + bombs_to_add
+	print(num_bombs)
+	
+func use_bombs(bombs_to_spend: int) -> bool:
+	if num_bombs < bombs_to_spend: return false
+
+	num_bombs = num_bombs-bombs_to_spend
+	return true
+
+func add_extra_lives(lives_to_add: int):
+	num_extra_lives += lives_to_add
+	
+func lose_extra_life() -> bool:
+	if num_extra_lives < 1: return false # lose the game here
+	
+	num_extra_lives -= 1
+	return true

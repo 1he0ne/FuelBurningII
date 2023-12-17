@@ -1,11 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=7 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_u0rdm"]
 [ext_resource type="Script" path="res://level/PathFollow2D.gd" id="3_iy6oa"]
-[ext_resource type="Script" path="res://level/BulletsContainer.gd" id="3_o2pmo"]
 [ext_resource type="PackedScene" uid="uid://opaijxv11qhu" path="res://enemy/enemy.tscn" id="3_yo2l2"]
-[ext_resource type="PackedScene" uid="uid://dxidc1nd2qd0y" path="res://pickup/bomb_pickup.tscn" id="5_hnb1k"]
 
 [sub_resource type="Curve2D" id="Curve2D_hc4u3"]
 _data = {
@@ -63,7 +61,6 @@ scale = Vector2(0.378906, 0.617187)
 texture = ExtResource("2_u0rdm")
 
 [node name="BulletsContainer" type="Node" parent="." groups=["bullets_container"]]
-script = ExtResource("3_o2pmo")
 
 [node name="EnemyPaths" type="Node2D" parent="."]
 
@@ -117,6 +114,3 @@ cubic_interp = false
 script = ExtResource("3_iy6oa")
 
 [node name="Enemy" parent="EnemyPaths/Path2D4/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="BombPickup" parent="." instance=ExtResource("5_hnb1k")]
-position = Vector2(332, 554)

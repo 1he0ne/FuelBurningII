@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3yyuo0md5ojv"]
+
+[ext_resource type="Script" path="res://weapons/autofire_gun/node_spawner/node_spawner.gd" id="1_q5msu"]
+[ext_resource type="PackedScene" uid="uid://dlyemo4h8hs4v" path="res://weapons/autofire_gun/bullet/bullet.tscn" id="2_ufcof"]
+
+[node name="NodeSpawner" type="Node2D"]
+script = ExtResource("1_q5msu")
+nodeScene = ExtResource("2_ufcof")

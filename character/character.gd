@@ -8,14 +8,11 @@ const SPEED = 300.0
 
 var character_world_position: float = 0.0
 
-var camRef:Camera2D
-
-var animRef:AnimatedSprite2D
+var camRef: Camera2D
+var animRef: AnimatedSprite2D
 
 # how far above camera 0 the camera follows the player
-#const cam_y_threshold = -1000
 const upper_threshold = 600
-
 # how far below camera 0 the player can't move back anymore
 const lower_threshold = 1080
 

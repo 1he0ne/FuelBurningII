@@ -13,14 +13,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4l316")
 
-[node name="Button2" type="Button" parent="Control"]
-layout_mode = 2
-offset_left = 125.537
-offset_top = 3.0
-offset_right = 213.537
-offset_bottom = 125.0
-text = "Show Map"
-
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 2
 offset_left = 20.537
@@ -29,5 +21,4 @@ offset_right = 116.537
 offset_bottom = 123.0
 text = "Start Game"
 
-[connection signal="button_up" from="Control/Button2" to="Control" method="_on_show_map_button_up"]
 [connection signal="button_up" from="Control/Button" to="Control" method="_on_start_game_button_up"]
