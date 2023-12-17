@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=12 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_u0rdm"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://opaijxv11qhu" path="res://enemy/enemy.tscn" id="3_yo2l2"]
 [ext_resource type="PackedScene" uid="uid://dxidc1nd2qd0y" path="res://pickup/bomb_pickup.tscn" id="5_hnb1k"]
 [ext_resource type="Script" path="res://level/EndArea.gd" id="7_efc5s"]
+[ext_resource type="Texture2D" uid="uid://br31nhpydnstx" path="res://level/background/tile_0042.png" id="8_ii18f"]
 
 [sub_resource type="Curve2D" id="Curve2D_hc4u3"]
 _data = {
@@ -32,7 +33,7 @@ limit_top = -1000000
 limit_smoothed = true
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_iaj0p")]
-position = Vector2(347, 676)
+position = Vector2(326, 1087)
 
 [node name="Objects" type="Node" parent="."]
 
@@ -135,6 +136,17 @@ script = ExtResource("7_efc5s")
 position = Vector2(-11.5, 0)
 shape = SubResource("RectangleShape2D_b10tu")
 debug_color = Color(0, 0.65098, 0.0823529, 0.419608)
+metadata/_edit_lock_ = true
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(0, 100)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(324, 576)
+scale = Vector2(40.625, 72.125)
+texture = ExtResource("8_ii18f")
 metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="EndArea" to="EndArea" method="_on_area_entered"]
