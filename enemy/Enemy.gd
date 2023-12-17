@@ -2,6 +2,8 @@ extends Node
 
 var gun = null
 
+signal is_dying
+
 func _ready():
 	gun = $EnemyGun
 

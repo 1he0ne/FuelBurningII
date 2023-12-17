@@ -7,16 +7,20 @@ extends Area2D
 @export var fadeout_time = 0.4
 @export var max_health = 5.0
 @export var hit_flash_time = 0.05
+@export var fadeout_enabled := true
 
 var health = max_health
 var is_alive := true
 
-
 var hit_cue: AudioStreamWAV
 var explode_cue: AudioStreamWAV
 
+signal dying
+
+
 func _ready():
 	%ExplosionAnimation.visible = false
+	
 	hit_cue = preload("res://audioAssets/bullethit1.wav")
 	explode_cue = preload("res://audioAssets/explode1.wav")
 
@@ -44,8 +48,9 @@ func _on_area_entered(area: Area2D) -> void:
 	damage_flash_animation(get_parent())
 	
 	if health <= 0: 
-		is_alive = false 
-		fade_out_and_delete(get_parent())
+		is_alive = false
+		if fadeout_enabled:
+			fade_out_and_delete(get_parent())
 		
 		#prevent more firing
 		%Guns.queue_free() 
@@ -55,6 +60,8 @@ func _on_area_entered(area: Area2D) -> void:
 		%ExplosionAnimation.play()
 		
 		AudioPlayer.play_sfx(explode_cue)
+		
+		dying.emit()
 	else:
 		AudioPlayer.play_sfx(hit_cue)
 
@@ -73,3 +80,4 @@ func damage_flash_animation(enemy:Node2D):
 	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	tween.tween_property(enemy, "modulate" , Color.RED, hit_flash_time)
 	tween.tween_property(enemy, "modulate" , original_modulate, hit_flash_time)
+
