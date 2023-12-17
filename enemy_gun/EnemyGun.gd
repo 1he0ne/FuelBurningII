@@ -14,10 +14,6 @@ func _ready():
 	bullets_container = get_tree().get_nodes_in_group("bullets_container")[0]
 	player = get_tree().get_nodes_in_group("player")[0]
 
-	# TODO: Remove this to allow caller to decide when to start firing
-	init_aimed_alternating_spread()
-	start(randf_range(0.5, 1.5))
-
 func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
