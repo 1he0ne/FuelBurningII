@@ -15,6 +15,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if(bullet):
 		do_bullet_hit_stuff()
 		bullet.queue_free()
+		damage_flash_animation()
 		
 	var bomb_pickup = area.get_parent() as BombPickup
 	if(bomb_pickup):
@@ -22,8 +23,6 @@ func _on_area_entered(area: Area2D) -> void:
 		bomb_pickup.queue_free()
 	
 	print("player was hit by %s" % area.get_parent().name)
-	damage_flash_animation()
-
 
 func do_bullet_hit_stuff():
 	var is_alive = GameState.lose_extra_life()
