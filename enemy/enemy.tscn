@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://opaijxv11qhu"]
+[gd_scene load_steps=7 format=3 uid="uid://opaijxv11qhu"]
 
+[ext_resource type="Script" path="res://enemy/Enemy.gd" id="1_ka8bg"]
 [ext_resource type="Texture2D" uid="uid://cc4jkgqntrj8t" path="res://artAssets/EnemyShip1/enemyShip1.png" id="1_t7aen"]
 [ext_resource type="Script" path="res://enemy/enemy_bullet_hitbox.gd" id="3_2s82g"]
 [ext_resource type="Shape2D" uid="uid://dgnhulm8575oa" path="res://enemy/enemy_bullet_hitbox.tres" id="4_w1vjp"]
@@ -7,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://yy3hj70rc16a" path="res://enemy_gun/EnemyGun.tscn" id="6_ue7tq"]
 
 [node name="Enemy" type="Node2D"]
+script = ExtResource("1_ka8bg")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 rotation = 3.14159
