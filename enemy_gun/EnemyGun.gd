@@ -7,6 +7,10 @@ var wait_timer = null
 var bullets_container = null
 var player = null
 
+# Difficulty adjustment
+var bullet_speed_scale = 1.0
+var fire_rate_scale = 1.0
+
 enum { WAIT, FIRE, AIM_AT_PLAYER, AIM_DOWN, TURN }
 
 func _ready():
@@ -137,17 +141,17 @@ func fire(params):
 			angle = randf_range(angle[0], angle[1])
 		vel = vel.rotated(deg_to_rad(angle))
 
-	vel = vel * speed
+	vel = vel * speed * bullet_speed_scale
 
 	bullets_container.create_bullet(global_position, vel)
 
 func wait(time):
+	time *= (1.0 / fire_rate_scale)
 	wait_timer.wait_time = time
 	wait_timer.start()
 
 func aim_at_player():
 	aim_dir = (player.position - global_position).normalized()
-	pass
 
 func aim_down():
 	aim_dir.x = 0
