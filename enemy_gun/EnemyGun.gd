@@ -21,6 +21,23 @@ func init_aimed_shot(speed):
 		[ WAIT, 0.5 ]
 	]
 
+func init_random_splat():
+	instructions = [
+		[ AIM_AT_PLAYER ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 0.1 ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 0.1 ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 2.0 ]
+	]
+
 func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
@@ -101,7 +118,12 @@ func fire(params):
 	var speed = params["speed"]
 	var angle = params["angle"]
 
+	if speed is Array:
+		speed = randf_range(speed[0], speed[1])
+
 	if angle:
+		if angle is Array:
+			angle = randf_range(angle[0], angle[1])
 		vel = vel.rotated(deg_to_rad(angle))
 
 	vel = vel * speed
