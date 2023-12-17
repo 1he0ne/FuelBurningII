@@ -4,7 +4,7 @@ extends Area2D
 ##
 
 
-func _on_area_entered(area: Area2D) -> void:
+func _on_area_entered(_area: Area2D) -> void:
 	print("character has reached the end")
 	
 	#var character = area.get_parent()

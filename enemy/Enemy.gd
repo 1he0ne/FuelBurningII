@@ -17,5 +17,5 @@ func _ready():
 
 	gun.start(randf_range(0.5, 1.5))
 
-func _process(delta):
+func _process(_delta):
 	pass
