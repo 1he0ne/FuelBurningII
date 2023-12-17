@@ -14,25 +14,77 @@ func _ready():
 	bullets_container = get_tree().get_nodes_in_group("bullets_container")[0]
 	player = get_tree().get_nodes_in_group("player")[0]
 
-	# TODO: Remove this to allow caller to decide when to start firing
-	init_aimed_alternating_spread()
-	start(randf_range(0.5, 1.5))
+func init_aimed_shot(speed):
+	instructions = [
+		[ AIM_AT_PLAYER ],
+		[ FIRE, { "speed": speed, "angle": 0.0 } ],
+		[ WAIT, 0.5 ]
+	]
+
+func init_random_splat():
+	instructions = [
+		[ AIM_AT_PLAYER ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [5.0, 5.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 0.1 ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [6.0, 6.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 0.1 ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ FIRE, { "speed": [7.0, 7.5], "angle": [-6.0, 6.0] } ],
+		[ WAIT, 2.0 ]
+	]
 
 func init_aimed_alternating_spread():
 	instructions = [
 		[ AIM_AT_PLAYER ],
-		[ FIRE, { "angle": -10.0 }],
-		[ FIRE, { "angle": null } ],
-		[ FIRE, { "angle": 10.0 }],
+		[ FIRE, { "speed": 5.0, "angle": -10.0 }],
+		[ FIRE, { "speed": 5.0, "angle": null } ],
+		[ FIRE, { "speed": 5.0, "angle": 10.0 }],
 		[ WAIT, 0.2 ],
 		[ AIM_AT_PLAYER ],
-		[ FIRE, { "angle": -5.0 }],
-		[ FIRE, { "angle": 5.0 }],
+		[ FIRE, { "speed": 5.0, "angle": -5.0 }],
+		[ FIRE, { "speed": 5.0, "angle": 5.0 }],
 		[ WAIT, 1.5 ]
 	]
 
-func start(initial_delay = 0):
-	if initial_delay == 0:
+func init_spiral():
+	turn(randf_range(0.0, 360.0))
+	instructions = [
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 3.0 ],
+		[ WAIT, 0.05 ],
+		[ FIRE, { "speed": 4.0, "angle": 0.0 }],
+		[ TURN, 40.0 ],
+		[ WAIT, 0.05 ]
+	]
+
+func start(initial_delay = 0.0):
+	if initial_delay == 0.0:
 		execute()
 	else:
 		wait(initial_delay)
@@ -63,12 +115,18 @@ func execute():
 
 func fire(params):
 	var vel = aim_dir.normalized()
+	var speed = params["speed"]
 	var angle = params["angle"]
 
+	if speed is Array:
+		speed = randf_range(speed[0], speed[1])
+
 	if angle:
+		if angle is Array:
+			angle = randf_range(angle[0], angle[1])
 		vel = vel.rotated(deg_to_rad(angle))
 
-	vel = vel * 5
+	vel = vel * speed
 
 	bullets_container.create_bullet(global_position, vel)
 
