@@ -34,7 +34,7 @@ text = "Credits"
 offset_left = 19.0
 offset_top = 13.0
 offset_right = 642.0
-offset_bottom = 300.0
+offset_bottom = 408.0
 text = "Welcome to [Super awesomely named SHMUP game jam entry]!
 
 Press [Space] to play!
@@ -42,6 +42,9 @@ Press [Shift] to see the credits!
 Press [ESC] for the options!
 
 Or... use the buttons below ~
+
+
+
 
 How to play: 
 Arrows/WASD: move

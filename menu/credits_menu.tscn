@@ -28,4 +28,13 @@ Music - Edi
 
 
 
-Press ESC to go back"
+Press ESC to go back (or click the button)"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 769.0
+offset_right = 159.0
+offset_bottom = 827.0
+text = "Back"
+
+[connection signal="button_up" from="Button" to="." method="_on_button_button_up"]
