@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://c2krrrwn06ou" path="res://weapons/autofire_gun/autofire_gun.tscn" id="2_buq5n"]
 [ext_resource type="Script" path="res://enemy/enemy_bullet_hitbox.gd" id="3_2s82g"]
 [ext_resource type="Shape2D" uid="uid://dgnhulm8575oa" path="res://enemy/enemy_bullet_hitbox.tres" id="4_w1vjp"]
-[ext_resource type="PackedScene" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
+[ext_resource type="PackedScene" uid="uid://d0jmjt1osxiy0" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
 
 [node name="Enemy" type="Node2D"]
 
