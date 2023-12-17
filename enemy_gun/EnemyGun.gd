@@ -18,7 +18,7 @@ func init_aimed_shot(speed):
 	instructions = [
 		[ AIM_AT_PLAYER ],
 		[ FIRE, { "speed": speed, "angle": 0.0 } ],
-		[ WAIT, 0.5 ]
+		[ WAIT, 0.2 ]
 	]
 
 func init_random_splat():

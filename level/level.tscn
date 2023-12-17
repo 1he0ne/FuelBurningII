@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=14 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
 [ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_u0rdm"]
@@ -15,12 +15,6 @@ _data = {
 "points": PackedVector2Array(0, 0, 0, 0, 77, 173, 0, 0, 0, 0, 210, 174, 0, 0, 0, 0, 291, 274, 57.0819, 1.78381, -57.0819, -1.78381, 140, 362, 0, 0, 0, 0, -104, 282, 0, 0, 0, 0, 77, 173)
 }
 point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_pjnqp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 395, -109, 0, 0, 0, 0, 396, -109, 0, 0, 0, 0, 781, -108, 0, 0, 0, 0, 395, -109)
-}
-point_count = 4
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w7b2"]
 texture = ExtResource("9_bore1")
@@ -896,8 +890,6 @@ rotates = false
 cubic_interp = false
 script = ExtResource("3_iy6oa")
 
-[node name="Enemy" parent="EnemyPaths/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
 [node name="Path2D2" type="Path2D" parent="EnemyPaths"]
 position = Vector2(56, -44)
 curve = SubResource("Curve2D_hc4u3")
@@ -909,19 +901,8 @@ rotates = false
 cubic_interp = false
 script = ExtResource("3_iy6oa")
 
-[node name="Enemy" parent="EnemyPaths/Path2D2/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="Path2D3" type="Path2D" parent="EnemyPaths"]
-position = Vector2(-150, 135)
-curve = SubResource("Curve2D_pjnqp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D3"]
-position = Vector2(395, -109)
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-
-[node name="Enemy2" parent="EnemyPaths/Path2D3/PathFollow2D" instance=ExtResource("3_yo2l2")]
+[node name="Enemy2" parent="EnemyPaths" instance=ExtResource("3_yo2l2")]
+position = Vector2(323, 39)
 
 [node name="Path2D4" type="Path2D" parent="EnemyPaths"]
 position = Vector2(217, -688)
@@ -933,8 +914,6 @@ rotation = 0.00751866
 rotates = false
 cubic_interp = false
 script = ExtResource("3_iy6oa")
-
-[node name="Enemy" parent="EnemyPaths/Path2D4/PathFollow2D" instance=ExtResource("3_yo2l2")]
 
 [node name="BombPickup" parent="." instance=ExtResource("5_hnb1k")]
 position = Vector2(332, 554)

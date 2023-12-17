@@ -5,6 +5,10 @@ var gun = null
 func _ready():
 	gun = $EnemyGun
 
+	gun.init_aimed_shot(40.0)
+	gun.start()
+	return
+
 	match randi_range(0, 3):
 		0:
 			gun.init_aimed_shot(12.0)
