@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqjueqoylk6c3"]
+
+[ext_resource type="Script" path="res://menu/main_menu.gd" id="1_1flbk"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1flbk")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 15.0
+offset_top = 10.0
+offset_right = 638.0
+offset_bottom = 370.0
+text = "Welcome to [Super awesomely named SHMUP game jam entry]!
+
+Press [Space] to play!
+Press [Shift] to see the credits!
+Press [ESC] for the options!"

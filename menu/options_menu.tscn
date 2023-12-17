@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://blph872wpdu5a"]
+
+[ext_resource type="Script" path="res://menu/options_menu.gd" id="1_42cvn"]
+
+[node name="OptionsMenu" type="Node2D"]
+script = ExtResource("1_42cvn")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 49.0
+offset_top = 29.0
+offset_right = 379.0
+offset_bottom = 253.0
+text = "These are the options. Press ESC to return :)
+
+Volume: 9001"
