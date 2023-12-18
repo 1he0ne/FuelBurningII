@@ -9,7 +9,7 @@ extends Area2D
 @export var hit_flash_time = 0.05
 @export var fadeout_enabled := true
 
-var health = max_health
+@onready var health = max_health
 var is_alive := true
 
 var hit_cue: AudioStreamWAV

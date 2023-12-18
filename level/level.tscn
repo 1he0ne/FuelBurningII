@@ -1,7 +1,6 @@
-[gd_scene load_steps=17 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=16 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
-[ext_resource type="Texture2D" uid="uid://d1cndmld61k4q" path="res://icon.svg" id="2_u0rdm"]
 [ext_resource type="Script" path="res://level/PathFollow2D.gd" id="3_iy6oa"]
 [ext_resource type="Script" path="res://level/BulletsContainer.gd" id="3_o2pmo"]
 [ext_resource type="PackedScene" uid="uid://opaijxv11qhu" path="res://enemy/enemy.tscn" id="3_yo2l2"]
@@ -9,25 +8,8 @@
 [ext_resource type="Script" path="res://level/EndArea.gd" id="7_efc5s"]
 [ext_resource type="Texture2D" uid="uid://br31nhpydnstx" path="res://level/background/tile_0042.png" id="8_ii18f"]
 [ext_resource type="Texture2D" uid="uid://camxe5r07a1ij" path="res://level/background/tiles_packed.png" id="9_bore1"]
+[ext_resource type="PackedScene" uid="uid://bqjrt736ya58j" path="res://level/activate_enemies/activate_enemies.tscn" id="10_n85nb"]
 [ext_resource type="PackedScene" uid="uid://bn27gr50k8ij3" path="res://enemy/boss/boss.tscn" id="10_qevxd"]
-
-[sub_resource type="Curve2D" id="Curve2D_hc4u3"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 77, 173, 0, 0, 0, 0, 210, 174, 0, 0, 0, 0, 291, 274, 57.0819, 1.78381, -57.0819, -1.78381, 140, 362, 0, 0, 0, 0, -104, 282, 0, 0, 0, 0, 77, 173)
-}
-point_count = 6
-
-[sub_resource type="Curve2D" id="Curve2D_pjnqp"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 395, -109, 0, 0, 0, 0, 396, -109, 0, 0, 0, 0, 781, -108, 0, 0, 0, 0, 395, -109)
-}
-point_count = 4
-
-[sub_resource type="Curve2D" id="Curve2D_60boi"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, 85, -4630, 0, 0, 0, 0, 545, -4626, 0, 0, 0, 0, 550, -4920, 0, 0, 0, 0, 53, -4925, 0, 0, 0, 0, 85, -4630)
-}
-point_count = 5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w7b2"]
 texture = ExtResource("9_bore1")
@@ -844,6 +826,18 @@ sources/0 = SubResource("TileSetAtlasSource_7w7b2")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b10tu"]
 size = Vector2(700, 20)
 
+[sub_resource type="Curve2D" id="Curve2D_hc4u3"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 77, 173, 0, 0, 0, 0, 210, 174, 0, 0, 0, 0, 291, 274, 57.0819, 1.78381, -57.0819, -1.78381, 140, 362, 0, 0, 0, 0, 69.955, 345.216, 0, 0, 0, 0, -104, 282, 0, 0, 0, 0, 77, 173)
+}
+point_count = 7
+
+[sub_resource type="Curve2D" id="Curve2D_60boi"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 19, -4134, 0, 0, 0, 0, 590, -4152, 0, 0, 0, 0, 591, -4404, 0, 0, 0, 0, 80, -4413, 0, 0, 0, 0, 100, -4750, 0, 0, 0, 0, 504, -4746, 0, 0, 0, 0, 566, -4913, 0, 0, 0, 0, 68, -4870, 0, 0, 0, 0, 252, -4657, 0, 0, 0, 0, 1266, -4673, 0, 0, 0, 0, 1257, -4674, 0, 0, 0, 0, 1427, -3678)
+}
+point_count = 12
+
 [node name="Level" type="Node"]
 
 [node name="CharacterCamera" type="Camera2D" parent="."]
@@ -855,108 +849,8 @@ limit_smoothed = true
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_iaj0p")]
 position = Vector2(326, 1087)
 
-[node name="Objects" type="Node" parent="."]
-
-[node name="object" type="Sprite2D" parent="Objects"]
-position = Vector2(79, 82)
-scale = Vector2(0.414063, 0.359375)
-texture = ExtResource("2_u0rdm")
-
-[node name="object2" type="Sprite2D" parent="Objects"]
-position = Vector2(189, 83)
-scale = Vector2(0.414063, 0.359375)
-texture = ExtResource("2_u0rdm")
-
-[node name="object5" type="Sprite2D" parent="Objects"]
-position = Vector2(71.5, -531)
-scale = Vector2(0.414063, 0.359375)
-texture = ExtResource("2_u0rdm")
-
-[node name="object6" type="Sprite2D" parent="Objects"]
-position = Vector2(181.5, -530)
-scale = Vector2(0.414063, 0.359375)
-texture = ExtResource("2_u0rdm")
-
-[node name="object3" type="Sprite2D" parent="Objects"]
-position = Vector2(572, 472)
-scale = Vector2(0.322265, 0.347656)
-texture = ExtResource("2_u0rdm")
-
-[node name="object4" type="Sprite2D" parent="Objects"]
-position = Vector2(508, 472)
-scale = Vector2(0.345703, 0.378906)
-texture = ExtResource("2_u0rdm")
-
 [node name="BulletsContainer" type="Node" parent="." groups=["bullets_container"]]
 script = ExtResource("3_o2pmo")
-
-[node name="EnemyPaths" type="Node2D" parent="."]
-
-[node name="Path2D" type="Path2D" parent="EnemyPaths"]
-position = Vector2(-21, 4)
-curve = SubResource("Curve2D_hc4u3")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D"]
-position = Vector2(77, 173)
-rotation = 0.00751866
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-
-[node name="Enemy" parent="EnemyPaths/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="Path2D2" type="Path2D" parent="EnemyPaths"]
-position = Vector2(56, -44)
-curve = SubResource("Curve2D_hc4u3")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D2"]
-position = Vector2(77, 173)
-rotation = 0.00751866
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-
-[node name="Enemy" parent="EnemyPaths/Path2D2/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="Path2D3" type="Path2D" parent="EnemyPaths"]
-position = Vector2(-150, 135)
-curve = SubResource("Curve2D_pjnqp")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D3"]
-position = Vector2(395, -109)
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-
-[node name="Enemy2" parent="EnemyPaths/Path2D3/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="Path2D4" type="Path2D" parent="EnemyPaths"]
-position = Vector2(217, -688)
-curve = SubResource("Curve2D_hc4u3")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D4"]
-position = Vector2(77, 173)
-rotation = 0.00751866
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-
-[node name="Enemy" parent="EnemyPaths/Path2D4/PathFollow2D" instance=ExtResource("3_yo2l2")]
-
-[node name="Path2D5" type="Path2D" parent="EnemyPaths"]
-position = Vector2(2, 48)
-curve = SubResource("Curve2D_60boi")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="EnemyPaths/Path2D5"]
-position = Vector2(343.342, -4627.75)
-rotation = 0.00869543
-progress = 258.352
-rotates = false
-cubic_interp = false
-script = ExtResource("3_iy6oa")
-speed = 0.2
-
-[node name="Boss" parent="EnemyPaths/Path2D5/PathFollow2D" instance=ExtResource("10_qevxd")]
 
 [node name="BombPickup" parent="." instance=ExtResource("5_hnb1k")]
 position = Vector2(332, 554)
@@ -991,5 +885,127 @@ shape = SubResource("RectangleShape2D_b10tu")
 debug_color = Color(0, 0.65098, 0.0823529, 0.419608)
 metadata/_edit_lock_ = true
 
-[connection signal="is_dying" from="EnemyPaths/Path2D5/PathFollow2D/Boss" to="EnemyPaths/Path2D5/PathFollow2D" method="slowdown_path_follower_to_a_hault"]
+[node name="ActivateEnemies" parent="." instance=ExtResource("10_n85nb")]
+
+[node name="Path2D" type="Path2D" parent="ActivateEnemies/EnableNodesContainer" index="0"]
+position = Vector2(68, -152)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies/EnableNodesContainer/Path2D"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy1" parent="ActivateEnemies/EnableNodesContainer/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="ActivateEnemies3" parent="." instance=ExtResource("10_n85nb")]
+position = Vector2(-16, -1209)
+
+[node name="Path2D" type="Path2D" parent="ActivateEnemies3/EnableNodesContainer" index="0"]
+position = Vector2(68, -152)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies3/EnableNodesContainer/Path2D"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy1" parent="ActivateEnemies3/EnableNodesContainer/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="ActivateEnemies2" parent="." instance=ExtResource("10_n85nb")]
+position = Vector2(4, -356)
+
+[node name="Path2D" type="Path2D" parent="ActivateEnemies2/EnableNodesContainer" index="0"]
+position = Vector2(403, -160)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies2/EnableNodesContainer/Path2D"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy1" parent="ActivateEnemies2/EnableNodesContainer/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="ActivateEnemies4" parent="." instance=ExtResource("10_n85nb")]
+position = Vector2(-9, -1529)
+
+[node name="Path2D" type="Path2D" parent="ActivateEnemies4/EnableNodesContainer" index="0"]
+position = Vector2(403, -160)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies4/EnableNodesContainer/Path2D"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy1" parent="ActivateEnemies4/EnableNodesContainer/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="ActivateEnemies5" parent="." instance=ExtResource("10_n85nb")]
+position = Vector2(484, -2797)
+
+[node name="CollisionShape2D" parent="ActivateEnemies5" index="0"]
+position = Vector2(40, 279)
+
+[node name="Path2D" type="Path2D" parent="ActivateEnemies5/EnableNodesContainer" index="0"]
+position = Vector2(-85, 20)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies5/EnableNodesContainer/Path2D"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy1" parent="ActivateEnemies5/EnableNodesContainer/Path2D/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="Path2D2" type="Path2D" parent="ActivateEnemies5/EnableNodesContainer" index="1"]
+position = Vector2(-8, -28)
+curve = SubResource("Curve2D_hc4u3")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies5/EnableNodesContainer/Path2D2"]
+position = Vector2(77, 173)
+rotation = 0.00751866
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+
+[node name="Enemy2" parent="ActivateEnemies5/EnableNodesContainer/Path2D2/PathFollow2D" instance=ExtResource("3_yo2l2")]
+
+[node name="ActivateEnemies6" parent="." instance=ExtResource("10_n85nb")]
+position = Vector2(286, -4783)
+
+[node name="CollisionShape2D" parent="ActivateEnemies6" index="0"]
+position = Vector2(34, 942)
+
+[node name="BossPath2D" type="Path2D" parent="ActivateEnemies6/EnableNodesContainer" index="0"]
+position = Vector2(-279, 4976)
+curve = SubResource("Curve2D_60boi")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="ActivateEnemies6/EnableNodesContainer/BossPath2D"]
+position = Vector2(19, -4134)
+rotation = 0.00869543
+rotates = false
+cubic_interp = false
+script = ExtResource("3_iy6oa")
+speed = 0.05
+
+[node name="Boss" parent="ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D" instance=ExtResource("10_qevxd")]
+
 [connection signal="area_entered" from="EndArea" to="EndArea" method="_on_area_entered"]
+[connection signal="is_dying" from="ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" to="ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D" method="slowdown_path_follower_to_a_hault"]
+
+[editable path="ActivateEnemies"]
+[editable path="ActivateEnemies3"]
+[editable path="ActivateEnemies2"]
+[editable path="ActivateEnemies4"]
+[editable path="ActivateEnemies5"]
+[editable path="ActivateEnemies6"]

@@ -314,6 +314,7 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_mafk8")
 
 [node name="BulletHitbox" parent="." index="2"]
+max_health = 120.0
 fadeout_enabled = false
 
 [node name="CollisionShape2D" parent="BulletHitbox" index="0"]

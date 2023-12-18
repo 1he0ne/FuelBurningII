@@ -48,11 +48,12 @@ shape = SubResource("RectangleShape2D_d5y84")
 metadata/_edit_lock_ = true
 metadata/_edit_group_ = true
 
-[node name="EndgameHitbox" type="Area2D" parent="."]
+[node name="ActivateEventsHitbox" type="Area2D" parent="."]
 collision_layer = 8
 collision_mask = 8
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="EndgameHitbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ActivateEventsHitbox"]
+visible = false
 shape = SubResource("CircleShape2D_kgchd")
 debug_color = Color(6.257e-07, 0.638682, 0.38128, 0.419608)
 

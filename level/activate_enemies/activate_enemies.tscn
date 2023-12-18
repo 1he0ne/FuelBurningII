@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://bqjrt736ya58j"]
+
+[ext_resource type="Script" path="res://level/activate_enemies/activate_nodes.gd" id="1_d1rrm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cdkon"]
+size = Vector2(647, 555)
+
+[node name="EnableArea" type="Area2D"]
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("1_d1rrm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(323.5, 277.5)
+shape = SubResource("RectangleShape2D_cdkon")
+debug_color = Color(0.811765, 0.411765, 0, 0.027451)
+
+[node name="EnableNodesContainer" type="Node2D" parent="."]
+
+[connection signal="area_entered" from="." to="." method="_on_player_detection_area_entered"]
