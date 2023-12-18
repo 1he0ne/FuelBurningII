@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://qqowlcy403y0"]
+
+[ext_resource type="Script" path="res://artAssets/SideBar/side_bar_cockpit.gd" id="1_07cmk"]
+[ext_resource type="Texture2D" uid="uid://qfw1vbg0dw6a" path="res://artAssets/SideBar/CockpitEmpty.png" id="1_hyav5"]
+[ext_resource type="Texture2D" uid="uid://bd1qbvt6pt6uu" path="res://artAssets/SideBar/CockpitGrin.png" id="2_u27aj"]
+[ext_resource type="Texture2D" uid="uid://dgne1vd15b4xg" path="res://artAssets/SideBar/CockpitHurt.png" id="3_8am6e"]
+[ext_resource type="Texture2D" uid="uid://bmxl6gk4b6tiu" path="res://artAssets/SideBar/CockpitNeutral.png" id="4_0lbye"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_03kjk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_hyav5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_0lbye")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_8am6e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_u27aj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[node name="SideBarCockpit" type="Node2D"]
+script = ExtResource("1_07cmk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_03kjk")

@@ -1,5 +1,7 @@
 extends Node
 
+@export var sidebar: SideBarCockpit
+
 var bomb_explosion_sfx = preload("res://audioAssets/bombdrop1.wav")
 var bomb_not_available_sfx = preload("res://audioAssets/menuback1.wav")
 
@@ -13,5 +15,7 @@ func _input(event: InputEvent) -> void:
 		
 		AudioPlayer.play_sfx(bomb_explosion_sfx)
 		level_bullet_container.destroy_all_bullets()
+		sidebar.show_character_happy()
 	else:
 		AudioPlayer.play_sfx(bomb_not_available_sfx)
+		sidebar.show_character_damaged()

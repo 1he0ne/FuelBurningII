@@ -3,7 +3,6 @@ extends CharacterBody2D
 ##
 ## Moves in 8 directions
 
-
 const SPEED = 300.0
 
 var character_world_position: float = 0.0

@@ -7,6 +7,8 @@ extends Area2D
 @export var hit_flash_color:Color = Color.LIGHT_SLATE_GRAY
 @export var pickup_flash_time = 0.05
 
+@export var sidebar:SideBarCockpit
+
 var collect_pickup_sfx: AudioStreamWAV = preload("res://audioAssets/upgradecollected1.wav")
 var lose_life_sfx: AudioStreamWAV = preload("res://audioAssets/explode1.wav")
 
@@ -24,7 +26,6 @@ func _on_area_entered(area: Area2D) -> void:
 		do_bomb_pickup_stuff()
 		bomb_pickup.queue_free()
 		
-	
 	print("player was hit by %s" % area.get_parent().name)
 
 func do_bullet_hit_stuff():
@@ -32,12 +33,14 @@ func do_bullet_hit_stuff():
 	AudioPlayer.play_sfx(lose_life_sfx)
 	print("Character lost an extra life (%s left) still alive = %s" % [GameState.num_extra_lives, is_alive])
 	flash_animation(hit_flash_color, hit_flash_time)
+	(sidebar as SideBarCockpit).show_character_damaged()
 	
 func do_bomb_pickup_stuff():
 	GameState.add_bombs(1)
 	AudioPlayer.play_sfx(collect_pickup_sfx)
 	print("Character gained a bomb (%s total)" % GameState.num_bombs)
 	flash_animation(Color.AQUAMARINE, pickup_flash_time)
+	(sidebar as SideBarCockpit).show_character_happy()
 
 
 func flash_animation(color:Color, flash_time:float):

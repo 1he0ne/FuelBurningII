@@ -7,22 +7,22 @@
 script = ExtResource("1_ilwlb")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -5.0
-offset_top = 912.0
-offset_right = 1504.0
+offset_left = -6.0
+offset_top = 785.0
+offset_right = 1309.0
 offset_bottom = 1160.0
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(750.337, 456.25)
-scale = Vector2(0.753284, 0.753284)
+position = Vector2(651.815, 396.25)
+scale = Vector2(0.654762, 0.654762)
 texture = ExtResource("1_6mybw")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 87.0
-offset_top = 1000.0
-offset_right = 1424.0
-offset_bottom = 1075.0
+offset_left = -14.0
+offset_top = 932.0
+offset_right = 1323.0
+offset_bottom = 1007.0
 theme_override_font_sizes/normal_font_size = 51
 bbcode_enabled = true
 text = "[center]PRESS START !!!![center]"
