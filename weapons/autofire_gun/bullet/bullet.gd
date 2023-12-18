@@ -9,3 +9,6 @@ class_name Bullet
 
 func _physics_process(_delta: float):
 	position += velocity
+
+func _on_leave_screen():
+	queue_free()
