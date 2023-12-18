@@ -12,8 +12,8 @@ dest_files=["res://.godot/imported/triangulate_bgm.ogg-03767a5a9858c7078842ee907
 
 [params]
 
-loop=false
-loop_offset=0
-bpm=0
+loop=true
+loop_offset=0.0
+bpm=160.0
 beat_count=0
 bar_beats=4
