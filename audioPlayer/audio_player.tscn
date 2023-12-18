@@ -4,6 +4,7 @@
 [ext_resource type="AudioStream" uid="uid://c2a0piqmsxgk0" path="res://audioAssets/bgm/intro_track_bgm.ogg" id="2_4as1b"]
 
 [node name="AudioPlayer" type="Node"]
+process_mode = 3
 script = ExtResource("1_8082o")
 
 [node name="SFX8" type="AudioStreamPlayer" parent="."]

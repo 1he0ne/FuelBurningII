@@ -19,6 +19,10 @@ func _ready():
 	AudioPlayer.enable_lpf()
 	GameState.pause_timer()
 	
+	get_tree().paused = true
+	
+
+	
 
 # Called when the node enters the scene tree for the first time.
 func _input(event: InputEvent) -> void:
@@ -37,7 +41,8 @@ func _input(event: InputEvent) -> void:
 		if selectedBar == bgmBar:
 			_on_bgm_plus()
 		
-	if event.is_action_pressed("move_up") || event.is_action_pressed("move_down"):
+	# TODO: triggers erratically when using controller	
+	if event.is_action_released("move_up") || event.is_action_released("move_down"):
 		if selectedBar == sfxBar:
 			_on_select_bar(bgmBar)
 		else:
@@ -81,6 +86,7 @@ func _on_bgm_plus():
 
 
 func _on_back_button_pressed():
+	get_tree().paused = false
 	AudioPlayer.disable_lpf()
 	if get_meta("is_ingame_menu"):
 		print("ingame")
