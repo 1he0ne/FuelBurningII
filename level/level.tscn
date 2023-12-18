@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=17 format=3 uid="uid://bdkdlt0pakrd7"]
 
+[ext_resource type="Script" path="res://level/LevelAudioNode.gd" id="1_61smf"]
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
 [ext_resource type="Script" path="res://level/PathFollow2D.gd" id="3_iy6oa"]
 [ext_resource type="Script" path="res://level/BulletsContainer.gd" id="3_o2pmo"]
@@ -839,6 +840,9 @@ _data = {
 point_count = 12
 
 [node name="Level" type="Node"]
+
+[node name="MasterNode" type="Node" parent="."]
+script = ExtResource("1_61smf")
 
 [node name="CharacterCamera" type="Camera2D" parent="."]
 unique_name_in_owner = true

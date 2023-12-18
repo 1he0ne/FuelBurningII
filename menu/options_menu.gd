@@ -16,12 +16,14 @@ func _ready():
 	
 	_on_select_bar(sfxBar)
 	
+	AudioPlayer.enable_lpf()
+	GameState.pause_timer()
+	
 
 # Called when the node enters the scene tree for the first time.
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("menu_back"): 
-		get_tree().change_scene_to_file(main_menu_scene_path) 
-		# how do we decide if came here from the game or from the menu?
+		_on_back_button_pressed()
 		
 	if event.is_action_pressed("move_left"):
 		if selectedBar == sfxBar:
@@ -79,4 +81,10 @@ func _on_bgm_plus():
 
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_file(main_menu_scene_path) 
+	AudioPlayer.disable_lpf()
+	if get_meta("is_ingame_menu"):
+		print("ingame")
+		queue_free()
+	else:
+		print("not ingame")
+		get_tree().change_scene_to_file(main_menu_scene_path)

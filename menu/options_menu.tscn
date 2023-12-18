@@ -4,22 +4,23 @@
 
 [node name="OptionsMenu" type="Node2D"]
 script = ExtResource("1_42cvn")
+metadata/is_ingame_menu = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 49.0
-offset_top = 29.0
-offset_right = 446.0
-offset_bottom = 204.0
+offset_left = 132.0
+offset_top = 370.0
+offset_right = 529.0
+offset_bottom = 545.0
 text = "These are the options. Press ESC to return :)
 
 Left/Right to adjust volume
 Up/Down to select BGM / SFX"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
-offset_left = 113.0
-offset_top = 228.0
-offset_right = 381.0
-offset_bottom = 286.0
+offset_left = 196.0
+offset_top = 569.0
+offset_right = 464.0
+offset_bottom = 627.0
 
 [node name="sfx_volume_bar" type="ProgressBar" parent="VBoxContainer"]
 layout_mode = 2
@@ -116,10 +117,10 @@ mouse_filter = 2
 text = "+"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 45.0
-offset_top = 341.0
-offset_right = 131.0
-offset_bottom = 384.0
+offset_left = 128.0
+offset_top = 682.0
+offset_right = 214.0
+offset_bottom = 725.0
 text = "Back"
 
 [connection signal="gui_input" from="VBoxContainer/sfx_volume_bar" to="." method="_on_progress_bar_gui_input"]

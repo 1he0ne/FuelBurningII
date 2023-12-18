@@ -1,24 +1,38 @@
-[gd_scene load_steps=2 format=3 uid="uid://cixiegbdbkxh"]
+[gd_scene load_steps=3 format=3 uid="uid://cixiegbdbkxh"]
 
 [ext_resource type="Script" path="res://audioPlayer/audio_player.gd" id="1_8082o"]
+[ext_resource type="AudioStream" uid="uid://c2a0piqmsxgk0" path="res://audioAssets/bgm/intro_track_bgm.ogg" id="2_4as1b"]
 
 [node name="AudioPlayer" type="Node"]
 script = ExtResource("1_8082o")
 
 [node name="SFX8" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX7" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX6" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX5" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX4" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX3" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX2" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [node name="SFX1" type="AudioStreamPlayer" parent="."]
+max_polyphony = 8
+bus = &"SFX"
 
 [node name="BGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_4as1b")
+volume_db = -80.0
+autoplay = true
+bus = &"BGM"
