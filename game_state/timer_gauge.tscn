@@ -8,7 +8,7 @@ script = ExtResource("1_2gvc2")
 
 [node name="NeedleShadow" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(123.567, 133.665)
+position = Vector2(124, 139)
 rotation = 2.36017
 scale = Vector2(1.5, 1.5)
 texture = ExtResource("3_oy37q")

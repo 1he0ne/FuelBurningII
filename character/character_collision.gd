@@ -26,6 +26,11 @@ func _on_area_entered(area: Area2D) -> void:
 		do_bomb_pickup_stuff()
 		bomb_pickup.queue_free()
 		
+	var fuel_pickup = area.get_parent() as FuelPickup
+	if(fuel_pickup):
+		do_fuel_pickup_stuff()
+		fuel_pickup.queue_free()
+		
 	print("player was hit by %s" % area.get_parent().name)
 
 func do_bullet_hit_stuff():
@@ -39,6 +44,14 @@ func do_bomb_pickup_stuff():
 	GameState.add_bombs(1)
 	AudioPlayer.play_sfx(collect_pickup_sfx)
 	print("Character gained a bomb (%s total)" % GameState.num_bombs)
+	flash_animation(Color.AQUAMARINE, pickup_flash_time)
+	(sidebar as SideBarCockpit).show_character_happy()
+	
+func do_fuel_pickup_stuff():
+	# are 10 secs good? should we make it configurable via the pickup?
+	GameState.frames_left = mini(GameState.MAX_FRAMES, GameState.frames_left + GameState.seconds_to_frames(10))
+	AudioPlayer.play_sfx(collect_pickup_sfx)
+	print("Character gained some fuel")
 	flash_animation(Color.AQUAMARINE, pickup_flash_time)
 	(sidebar as SideBarCockpit).show_character_happy()
 

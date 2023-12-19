@@ -11,7 +11,7 @@ func _ready():
 	GameState.start_timer()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	label.text = "[center]Remaining time: %s[center]" % _frames_to_time(GameState.get_remaining_frames())
 	var degrees = _frames_to_deg(GameState.get_remaining_frames())
 	gauge_needle_shadow.rotation_degrees = degrees
@@ -20,7 +20,7 @@ func _process(delta):
 	
 
 func _frames_to_deg(frames: int) -> float:
-	var weight = (frames as float) / (GameState.max_frames as float)
+	var weight = (frames as float) / (GameState.MAX_FRAMES as float)
 	return lerpf(max_rotation, min_rotation, weight)
 
 func _frames_to_time(frames: int) -> String:

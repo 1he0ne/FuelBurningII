@@ -6,35 +6,37 @@
 script = ExtResource("1_s5vej")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 28.0
-offset_top = 26.0
-offset_right = 393.0
-offset_bottom = 686.0
-scale = Vector2(1.67074, 1.67074)
+offset_left = 274.0
+offset_top = 92.0
+offset_right = 1080.0
+offset_bottom = 983.0
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true
 text = "Hi, glad you're here!
 
-We're proud to present our game for
-==Tavern Jam 2023==
+[center]We're proud to present our game:
+==FUEL BURNING 2==
 
+[left]
+Game design							everyone
+Programming						Tab, Edi
+Design support						Luke
+Producer/cheerleader			Harvey
+Music										Edi
+SFX											Harvey
+Graphics								Harvey 
 
-
-Design - everyone
-Programming -Tab, Edi
-Design support - Luke
-Producer/cheerleader - Harvey
-Visual Artist - Assets by Kenney and Caz (thanks for making these available!)
-SFX - Harvey
-Music - Edi
-
-
++ Assets by Kenney and Caz
+(thanks for making these available!)
 
 Press ESC to go back (or click the button)"
 
 [node name="Button" type="Button" parent="."]
-offset_left = 29.0
-offset_top = 769.0
-offset_right = 159.0
-offset_bottom = 827.0
+offset_left = 272.0
+offset_top = 988.0
+offset_right = 463.0
+offset_bottom = 1073.0
+theme_override_font_sizes/font_size = 21
 text = "Back"
 
 [connection signal="button_up" from="Button" to="." method="_on_button_button_up"]

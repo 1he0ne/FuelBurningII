@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bdkdlt0pakrd7"]
+[gd_scene load_steps=21 format=3 uid="uid://bdkdlt0pakrd7"]
 
 [ext_resource type="Script" path="res://level/LevelAudioNode.gd" id="1_61smf"]
 [ext_resource type="PackedScene" uid="uid://bw6tylxvq44yt" path="res://character/character.tscn" id="1_iaj0p"]
+[ext_resource type="Script" path="res://level/CharacterCamera.gd" id="2_3bxf6"]
 [ext_resource type="PackedScene" uid="uid://c44fow237e1yu" path="res://game_state/timer_gauge.tscn" id="2_egyr5"]
 [ext_resource type="PackedScene" uid="uid://qqowlcy403y0" path="res://artAssets/SideBar/side_bar_cockpit.tscn" id="2_wnkuu"]
 [ext_resource type="Script" path="res://level/PathFollow2D.gd" id="3_iy6oa"]
@@ -13,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://camxe5r07a1ij" path="res://level/background/tiles_packed.png" id="9_bore1"]
 [ext_resource type="PackedScene" uid="uid://bqjrt736ya58j" path="res://level/activate_enemies/activate_enemies.tscn" id="10_n85nb"]
 [ext_resource type="PackedScene" uid="uid://bn27gr50k8ij3" path="res://enemy/boss/boss.tscn" id="10_qevxd"]
+[ext_resource type="PackedScene" uid="uid://bqp7x7bdaskni" path="res://artAssets/FuelPickup/fuel_pickup.tscn" id="14_rexke"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7w7b2"]
 texture = ExtResource("9_bore1")
@@ -854,6 +856,7 @@ unique_name_in_owner = true
 anchor_mode = 0
 limit_top = -1000000
 limit_smoothed = true
+script = ExtResource("2_3bxf6")
 
 [node name="FuelScreen" type="Node2D" parent="LevelScreen/CharacterCamera"]
 z_index = 4096
@@ -1031,6 +1034,9 @@ script = ExtResource("3_iy6oa")
 speed = 0.05
 
 [node name="Boss" parent="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D" instance=ExtResource("10_qevxd")]
+
+[node name="FuelPickup" parent="." instance=ExtResource("14_rexke")]
+position = Vector2(147, 554)
 
 [connection signal="area_entered" from="LevelScreen/EndArea" to="LevelScreen/EndArea" method="_on_area_entered"]
 [connection signal="is_dying" from="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" to="LevelScreen/CharacterCamera/FuelScreen/SideBarCockpit" method="show_character_happy"]

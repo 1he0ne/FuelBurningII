@@ -5,8 +5,8 @@ const main_menu_scene_path = "res://menu/main_menu.tscn"
 
 var sfx_sample_sound = preload("res://audioAssets/explode1.wav")
 
-@onready var sfxBar = $VBoxContainer/sfx_volume_bar as ProgressBar
-@onready var bgmBar = $VBoxContainer/bgm_volume_bar as ProgressBar
+@onready var sfxBar = $Control/VBoxContainer/sfx_volume_bar as ProgressBar
+@onready var bgmBar = $Control/VBoxContainer/bgm_volume_bar as ProgressBar
 @onready var selectedBar = sfxBar
 
 

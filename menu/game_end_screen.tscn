@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpf3grfq8lb2x"]
+
+[ext_resource type="Script" path="res://menu/game_end_screen.gd" id="1_qsdlo"]
+
+[node name="GameEndScreen" type="Node2D"]
+process_mode = 3
+script = ExtResource("1_qsdlo")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 54.0
+offset_top = 51.0
+offset_right = 607.0
+offset_bottom = 969.0
+color = Color(0.105882, 0.105882, 0.105882, 0.572549)
+
+[node name="Control" type="Control" parent="ColorRect"]
+layout_mode = 2
+anchors_preset = 0
+offset_left = 132.5
+offset_top = 531.0
+offset_right = 420.5
+offset_bottom = 531.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -138.0
+offset_right = 144.0
+offset_bottom = -6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="RestartButton" type="Button" parent="ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Play again!"
+
+[node name="MainMenuButton" type="Button" parent="ColorRect/Control/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Main Menu"
+
+[node name="GameEndMessage" type="RichTextLabel" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 120.0
+offset_top = 137.0
+offset_right = 542.0
+offset_bottom = 318.0
+grow_horizontal = 2
+theme_override_font_sizes/normal_font_size = 40
+bbcode_enabled = true
+text = "[center]MISSION COMPLETE!
+
+YOU WIN!!!!!"
+
+[connection signal="button_up" from="ColorRect/Control/VBoxContainer/RestartButton" to="." method="_on_restart_button"]
+[connection signal="button_up" from="ColorRect/Control/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button"]

@@ -23,7 +23,7 @@ func _ready() -> void:
 		$EnableNodesContainer.remove_child(node)
 		
 
-func _on_player_detection_area_entered(area: Area2D) -> void:
+func _on_player_detection_area_entered(_area: Area2D) -> void:
 	if disable_activation:
 		return
 	
@@ -34,6 +34,6 @@ func _on_player_detection_area_entered(area: Area2D) -> void:
 		await get_tree().process_frame #prevent error adding child
 		$EnableNodesContainer.add_child(node)
 		
-	if get_meta("is_boss"): AudioPlayer.play_bgm(AudioPlayer.boss_music)
+	if has_meta("is_boss") && get_meta("is_boss"): AudioPlayer.play_bgm(AudioPlayer.boss_music)
 		
 
