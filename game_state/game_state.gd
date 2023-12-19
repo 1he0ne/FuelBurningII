@@ -15,7 +15,7 @@ var pause_frames_left = 0
 
 # only deduct frames, if the variable is true
 # you need to set this to false when pausing the game (and probably while the char is in a shop)
-var is_running = true
+var is_running = false
 
 
 var num_bombs = 1

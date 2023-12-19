@@ -6,6 +6,7 @@ const main_menu_path = "res://menu/main_menu.tscn"
 var title_flash_counter = 0
 
 func _ready():
+	GameState.pause_timer()
 	AudioPlayer.play_sfx(AudioPlayer.fuel_burning_2_sfx, 0.5)
 	await get_tree().create_timer(3.0).timeout
 	AudioPlayer.play_bgm(AudioPlayer.title_music) # enable, once title music has been added
