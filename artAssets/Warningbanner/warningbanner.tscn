@@ -708,7 +708,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("176_gbo5h")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
 "speed": 30.0
 }]
@@ -717,5 +717,4 @@ animations = [{
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ml6pl")
-frame = 70
-frame_progress = 0.830923
+autoplay = "default"

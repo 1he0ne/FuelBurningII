@@ -24,7 +24,7 @@ func _frames_to_deg(frames: int) -> float:
 	return lerpf(max_rotation, min_rotation, weight)
 
 func _frames_to_time(frames: int) -> String:
-	var fractions =  (frames % 60) / 60.0 * 100.0 # convert frames to fractional seconds
+	var fractions =  ((frames+59) % 60) / 60.0 * 100.0 # convert frames to fractional seconds
 	frames = frames / 60
 	
 	var seconds = frames % 60

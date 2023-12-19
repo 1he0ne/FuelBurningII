@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh0puvefp31fw"]
+
+[ext_resource type="Script" path="res://bossBanner/bossBanner.gd" id="1_d44oh"]
+[ext_resource type="PackedScene" uid="uid://8k1ko151iugf" path="res://artAssets/Warningbanner/warningbanner.tscn" id="2_fmv3u"]
+
+[node name="BossBanner" type="Node2D"]
+script = ExtResource("1_d44oh")
+metadata/_edit_horizontal_guides_ = [575.0]
+metadata/_edit_vertical_guides_ = [650.0]
+
+[node name="Warningbanner" parent="." instance=ExtResource("2_fmv3u")]
+z_index = 4096
+position = Vector2(650, 575)

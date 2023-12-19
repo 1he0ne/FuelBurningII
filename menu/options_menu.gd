@@ -87,6 +87,7 @@ func _on_bgm_plus():
 
 func _on_back_button_pressed():
 	get_tree().paused = false
+	GameState.start_timer()
 	AudioPlayer.disable_lpf()
 	if get_meta("is_ingame_menu"):
 		print("ingame")
