@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://vtonyt71msqy"]
+[gd_scene load_steps=67 format=3 uid="uid://vtonyt71msqy"]
 
 [ext_resource type="Script" path="res://enemy/Enemy.gd" id="1_ga1n3"]
 [ext_resource type="Texture2D" uid="uid://ccsau0yctkmwq" path="res://artAssets/EnemyShip2/enemy2Default.png" id="2_3bblc"]
@@ -64,6 +64,7 @@
 [ext_resource type="Texture2D" uid="uid://b3nvo0fap54ny" path="res://artAssets/EnemyShip2/enemy2Destroyed0550.png" id="58_ufm42"]
 [ext_resource type="Texture2D" uid="uid://bwyf4fphbc4en" path="res://artAssets/EnemyShip2/enemy2Destroyed0560.png" id="59_fe2mo"]
 [ext_resource type="Texture2D" uid="uid://brl51yawqrn2x" path="res://artAssets/EnemyShip2/enemy2Destroyed0570.png" id="60_lhw4h"]
+[ext_resource type="Script" path="res://enemy/enemy2/DropFuelScript.gd" id="65_7dr6u"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ngvh2"]
 animations = [{
@@ -282,5 +283,9 @@ speed_scale = 4.0
 [node name="DestroyedAnimation" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ngvh2")
 
+[node name="DropFuelScript" type="Node" parent="."]
+script = ExtResource("65_7dr6u")
+
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]
 [connection signal="animation_finished" from="DestroyedAnimation" to="." method="_queue_free"]
+[connection signal="animation_finished" from="DestroyedAnimation" to="DropFuelScript" method="_spawn_fuel_when_destroyed"]
