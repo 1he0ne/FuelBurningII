@@ -61,6 +61,8 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		AudioPlayer.play_sfx(explode_cue)
 		
+		
+		
 		dying.emit()
 	else:
 		AudioPlayer.play_sfx(hit_cue)
