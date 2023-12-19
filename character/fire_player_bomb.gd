@@ -13,7 +13,7 @@ func _input(event: InputEvent) -> void:
 		level_bullet_container = get_tree().get_nodes_in_group("bullets_container")[0]
 		if !level_bullet_container: print("invalid bullet container!")
 		
-		AudioPlayer.play_sfx(bomb_explosion_sfx)
+		AudioPlayer.play_sfx(bomb_explosion_sfx, 1.3)
 		level_bullet_container.destroy_all_bullets()
 		sidebar.show_character_happy()
 	else:

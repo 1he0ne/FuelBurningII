@@ -20,7 +20,7 @@ func _on_restart_button():
 func _on_main_menu_button():
 	print("clicked main menu")
 	GameState.restore_default_game_state()
-	AudioPlayer.play_sfx(AudioPlayer.fuel_burning_2_sfx)
+	AudioPlayer.play_sfx(AudioPlayer.fuel_burning_2_sfx, 0.8)
 	AudioPlayer.play_bgm(AudioPlayer.intro_music)
 	get_tree().change_scene_to_file(main_menu_path)
 	get_tree().paused = false
