@@ -47,7 +47,7 @@ func lose_game():
 	if !is_game_over:
 		var end_screen:GameEndScreen = preload("res://menu/game_end_screen.tscn").instantiate()
 		get_node(".").add_child(end_screen)
-		(end_screen.get_child(1) as RichTextLabel).text = "[center]MISSION FAIL"
+		(end_screen.get_child(1) as RichTextLabel).text = "[center]MISSION FAIL!!!!"
 		end_screen.position = camera_reference.position
 		get_tree().paused = true
 
@@ -57,7 +57,7 @@ func win_game():
 	if !is_game_over:
 		var end_screen:GameEndScreen = preload("res://menu/game_end_screen.tscn").instantiate()
 		get_node(".").add_child(end_screen)
-		(end_screen.get_child(1) as RichTextLabel).text = "win"
+		(end_screen.get_child(1) as RichTextLabel).text = "[center]MISSION COMPLETE!\n\nYOU WIN!!!!!"
 		end_screen.position = camera_reference.position
 		get_tree().paused = true
 		

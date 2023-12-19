@@ -21,8 +21,9 @@ texture = ExtResource("1_6mybw")
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
 offset_left = -14.0
 offset_top = 932.0
-offset_right = 1323.0
-offset_bottom = 1007.0
-theme_override_font_sizes/normal_font_size = 51
+offset_right = 183.0
+offset_bottom = 952.0
+scale = Vector2(6.9511, 6.9511)
+theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
 text = "[center]PRESS START !!!![center]"

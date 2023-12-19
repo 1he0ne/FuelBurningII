@@ -1,16 +1,11 @@
 extends Node
 
 var gun = null
-#var animation:AnimatedSprite2D = null
 
 signal is_dying
 
 func _ready():
 	gun = $EnemyGun
-	#if $AnimatedSprite2D:
-	#	animation = $AnimatedSprite2D
-	#	animation.stop()
-	#	animation.set_frame(0)
 
 	# Difficulty adjustment example
 	#gun.bullet_speed_scale = 2.0
@@ -31,9 +26,6 @@ func _ready():
 	#delay so they do not fire before being disabled (to be enabled later) 
 	gun.start(0.1)
 
+
 func _on_is_dying():
-	#if animation:
-	#	animation.play()
-		
-	if has_meta("is_boss") && get_meta("is_boss"):
-		AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx)
+	AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx)
