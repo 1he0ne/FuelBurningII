@@ -13,10 +13,17 @@ var fire_rate_scale = 1.0
 
 enum { WAIT, FIRE, AIM_AT_PLAYER, AIM_DOWN, TURN }
 
+@export var can_fire := true
+
 func _ready():
 	wait_timer = $WaitTimer
 	bullets_container = get_tree().get_nodes_in_group("bullets_container")[0]
 	player = get_tree().get_nodes_in_group("player")[0]
+	
+	if !can_fire:
+		var x = func(): $WaitTimer.stop()
+		x.call_deferred()
+		
 
 func init_aimed_shot(speed):
 	instructions = [
