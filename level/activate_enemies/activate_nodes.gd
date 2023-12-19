@@ -34,4 +34,6 @@ func _on_player_detection_area_entered(area: Area2D) -> void:
 		await get_tree().process_frame #prevent error adding child
 		$EnableNodesContainer.add_child(node)
 		
+	if get_meta("is_boss"): AudioPlayer.play_bgm(AudioPlayer.boss_music)
+		
 

@@ -1013,6 +1013,7 @@ script = ExtResource("3_iy6oa")
 
 [node name="ActivateEnemies6" parent="LevelScreen" instance=ExtResource("10_n85nb")]
 position = Vector2(286, -4783)
+metadata/is_boss = true
 
 [node name="CollisionShape2D" parent="LevelScreen/ActivateEnemies6" index="0"]
 position = Vector2(34, 942)
@@ -1034,6 +1035,7 @@ speed = 0.05
 [connection signal="area_entered" from="LevelScreen/EndArea" to="LevelScreen/EndArea" method="_on_area_entered"]
 [connection signal="is_dying" from="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" to="LevelScreen/CharacterCamera/FuelScreen/SideBarCockpit" method="show_character_happy"]
 [connection signal="is_dying" from="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" to="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D" method="slowdown_path_follower_to_a_hault"]
+[connection signal="is_dying" from="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" to="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" method="_on_is_dying"]
 
 [editable path="LevelScreen/CharacterBody2D"]
 [editable path="LevelScreen/ActivateEnemies"]

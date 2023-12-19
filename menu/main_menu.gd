@@ -22,6 +22,8 @@ func _input(event: InputEvent) -> void:
 
 func load_game_scene():
 	get_tree().change_scene_to_file(game_scene_path)
+	AudioPlayer.stop_bgm()
+	AudioPlayer.play_sfx(AudioPlayer.mission_start_sfx)
 	AudioPlayer.play_bgm(AudioPlayer.game_music)
 
 func load_option_scene():

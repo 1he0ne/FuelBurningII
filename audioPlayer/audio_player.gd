@@ -4,13 +4,21 @@ var sfx_channels
 var channel_id_to_play_on = 0
 
 var sfx_volume = 80.0
-var bgm_volume = 0.0
+var bgm_volume = 80.0
 
-
+@onready var title_music = preload("res://audioAssets/bgm/title_track_bgm.ogg")
 @onready var intro_music = preload("res://audioAssets/bgm/intro_track_bgm.ogg")
 @onready var game_music = preload("res://audioAssets/bgm/triangulate_bgm.ogg")
+@onready var boss_music = preload("res://audioAssets/bgm/boss_bgm.ogg")
 
 @onready var audio_bus_layout = preload("res://audioPlayer/default_bus_layout.tres")
+
+@onready var mission_compree_sfx = preload("res://audioAssets/MISSIONCOMPREE.ogg")
+@onready var mission_start_sfx = preload("res://audioAssets/MISSIONSTART.ogg")
+@onready var fuel_burning_2_sfx = preload("res://audioAssets/FUELBURNING2.ogg")
+@onready var press_start_sfx = preload("res://audioAssets/PressStart.wav")
+@onready var boss_warning_1_sfx = preload("res://audioAssets/bosswarning1.wav")
+@onready var boss_warning_2_sfx = preload("res://audioAssets/evacuate.ogg")
 
 func disable_lpf():
 	($BGM as AudioStreamPlayer).bus = "BGM"
@@ -32,9 +40,9 @@ func _ready():
 	# print("audio player loaded")
 	sfx_channels = [$SFX1, $SFX2, $SFX3, $SFX4, $SFX5, $SFX6, $SFX7, $SFX8]
 
-func play_sfx(wav_to_play: AudioStreamWAV, volume: float = 1.0):
+func play_sfx(sfx_to_play, volume: float = 1.0):
 	var channel: AudioStreamPlayer = get_next_channel()
-	channel.stream = wav_to_play
+	channel.stream = sfx_to_play
 	var db = 10.0 * log(volume*sfx_volume/100.0)
 	channel.volume_db = db
 	channel.play()
@@ -48,6 +56,8 @@ func play_bgm(bgm_to_play, volume: float = 1.0):
 		$BGM.volume_db = db
 	$BGM.play()
 	
+func stop_bgm():
+	($BGM as AudioStreamPlayer).stop()
 
 	
 func set_sfx_volume():
