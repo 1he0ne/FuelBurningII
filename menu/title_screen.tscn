@@ -19,11 +19,11 @@ scale = Vector2(0.654762, 0.654762)
 texture = ExtResource("1_6mybw")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = -14.0
-offset_top = 932.0
-offset_right = 183.0
-offset_bottom = 952.0
+offset_left = -22.0
+offset_top = 917.0
+offset_right = 175.0
+offset_bottom = 937.0
 scale = Vector2(6.9511, 6.9511)
 theme_override_font_sizes/normal_font_size = 11
 bbcode_enabled = true
-text = "[center]PRESS START !!!![center]"
+text = "[center]PRESS 'X' TO INSERT COIN !!!!"

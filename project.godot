@@ -23,11 +23,15 @@ buses/default_bus_layout="res://audioPlayer/default_bus_layout.tres"
 
 GameState="*res://game_state/game_state.gd"
 AudioPlayer="*res://audioPlayer/audio_player.tscn"
+ViewportScaler="res://viewport_scaler.gd"
 
 [display]
 
 window/size/viewport_width=1300
 window/size/viewport_height=1152
+window/size/resizable=false
+window/size/borderless=true
+window/stretch/mode="canvas_items"
 
 [input]
 

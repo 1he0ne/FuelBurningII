@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d4lvdl3dx0fcm"]
+
+[ext_resource type="Script" path="res://viewport_scaler.gd" id="1_yp6tg"]
+
+[node name="ViewportScaler" type="Node"]
+script = ExtResource("1_yp6tg")
