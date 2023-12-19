@@ -28,6 +28,8 @@ var frames_left: int
 
 var camera_reference: Camera2D
 
+var _god_mode: bool = false
+
 ########## Functions
 
 # Called when the node enters the scene tree for the first time.
@@ -41,7 +43,17 @@ func restore_default_game_state():
 	frames_left = MAX_FRAMES
 	num_bombs = DEFAULT_BOMB_COUNT
 	num_extra_lives = DEFAULT_EXTRA_LIVES
+	
+func _input(event):
+	if event.is_action_pressed("god_mode"): 
+		enable_god_mode()
+		AudioPlayer.play_sfx(AudioPlayer.press_start_sfx)
 
+func enable_god_mode():
+	_god_mode = true
+	frames_left = 999999
+	num_bombs = 9999
+	num_extra_lives = 9999
 	
 func lose_game():
 	if !is_game_over:
@@ -94,7 +106,8 @@ func spend_frames(num_frames: int) -> bool:
 		
 func add_frames(num_frames: int):
 	print("added %s frames" % num_frames)
-	frames_left = clampi(frames_left + num_frames, 0, MAX_FRAMES)
+	if !_god_mode:
+		frames_left = clampi(frames_left + num_frames, 0, MAX_FRAMES)
 
 func add_bombs(bombs_to_add: int):
 	num_bombs = num_bombs + bombs_to_add
