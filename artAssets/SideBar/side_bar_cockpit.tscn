@@ -31,3 +31,12 @@ script = ExtResource("1_07cmk")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_03kjk")
+
+[node name="DisplayStateText" type="RichTextLabel" parent="."]
+offset_left = -311.0
+offset_top = -569.0
+offset_right = 309.0
+offset_bottom = -424.0
+theme_override_font_sizes/normal_font_size = 47
+text = "Lives: 3
+Bombs: 1"

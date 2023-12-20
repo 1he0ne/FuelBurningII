@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://ih80imbgadom" path="res://artAssets/EnemyShip2/enemy2Destroyed0010.png" id="4_uhen6"]
 [ext_resource type="Shape2D" uid="uid://dgnhulm8575oa" path="res://enemy/enemy_bullet_hitbox.tres" id="4_w1vjp"]
 [ext_resource type="Texture2D" uid="uid://7cobcittaq3t" path="res://artAssets/EnemyShip2/enemy2Destroyed0020.png" id="5_eosjr"]
-[ext_resource type="PackedScene" uid="uid://d0jmjt1osxiy0" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
+[ext_resource type="PackedScene" path="res://enemy/explosion_animation.tscn" id="5_exn24"]
 [ext_resource type="PackedScene" uid="uid://yy3hj70rc16a" path="res://enemy_gun/EnemyGun.tscn" id="6_ue7tq"]
 [ext_resource type="Texture2D" uid="uid://q5ld1kuql2lm" path="res://artAssets/EnemyShip2/enemy2Destroyed0030.png" id="6_wegce"]
 [ext_resource type="Texture2D" uid="uid://dw8mw8kd7j1kq" path="res://artAssets/EnemyShip2/enemy2Destroyed0040.png" id="7_xq1f7"]

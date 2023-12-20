@@ -21,6 +21,7 @@ func show_character_black():
 	
 
 func _physics_process(_delta):
+	$DisplayStateText.text = "Lives: %s\nBombs: %s" % [GameState.num_extra_lives, GameState.num_bombs]
 	frames_until_indifferent = max(frames_until_indifferent - 1, 0)
 	if frames_until_indifferent == 0 :
 		show_character_indifferent()
