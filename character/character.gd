@@ -18,7 +18,7 @@ const lower_threshold = 1080
 # how far the player may use left/right
 const left_threshold = 70
 const right_threshold = 580
-
+const upper_limit = -11810
 
 func _ready():
 	camRef = %CharacterCamera
@@ -26,7 +26,6 @@ func _ready():
 	
 	#enabled the hitbox
 	$ActivateEventsHitbox.visible = true
-	
 
 func _physics_process(_delta):
 	# Get the input direction and handle the movement/deceleration.
@@ -43,7 +42,10 @@ func _physics_process(_delta):
 	velocity = direction * SPEED
 	
 	if direction.y > 0 && (position.y - cam_offset_position > lower_threshold):
-		velocity.y = 0	
+		velocity.y = 0
+		
+	if direction.y < 0 && position.y <= upper_limit:
+		velocity.y = 0
 		
 	if (direction.x < 0 && position.x < left_threshold) || (direction.x > 0 && position.x > right_threshold) : 
 		velocity.x = 0
