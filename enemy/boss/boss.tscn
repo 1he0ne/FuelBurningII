@@ -307,6 +307,7 @@ animations = [{
 }]
 
 [node name="Boss" instance=ExtResource("1_5eph8")]
+scale = Vector2(1.5, 1.5)
 
 [node name="Sprite2D" parent="." index="0"]
 rotation = 0.0

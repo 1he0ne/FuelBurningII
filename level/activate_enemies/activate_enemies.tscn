@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_cdkon"]
 size = Vector2(647, 555)
 
-[node name="EnableArea" type="Area2D"]
+[node name="ActivateEnemies" type="Area2D"]
 collision_layer = 0
 collision_mask = 8
 script = ExtResource("1_d1rrm")
@@ -13,7 +13,7 @@ script = ExtResource("1_d1rrm")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(323.5, 277.5)
 shape = SubResource("RectangleShape2D_cdkon")
-debug_color = Color(0.811765, 0.411765, 0, 0.027451)
+debug_color = Color(0.811765, 0.411765, 0, 0.156863)
 
 [node name="EnableNodesContainer" type="Node2D" parent="."]
 
