@@ -1212,6 +1212,9 @@ delete_at_end = false
 
 [node name="Boss" parent="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D" instance=ExtResource("10_qevxd")]
 
+[node name="EnemyGun" parent="LevelScreen/ActivateEnemies6/EnableNodesContainer/BossPath2D/PathFollow2D/Boss" index="8"]
+can_fire = true
+
 [node name="ActivateEnemies13" parent="LevelScreen" instance=ExtResource("10_n85nb")]
 position = Vector2(299, -5059)
 metadata/is_boss = true
@@ -1320,6 +1323,12 @@ speed = 0.1
 [node name="Enemy2" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D2/PathFollow2D" instance=ExtResource("15_n8pe0")]
 rotation = 1.55858
 
+[node name="BulletHitbox" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D2/PathFollow2D/Enemy2" index="3"]
+fadeout_time = null
+max_health = null
+hit_flash_time = null
+fadeout_enabled = null
+
 [node name="EnemyGun" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D2/PathFollow2D/Enemy2" index="5"]
 can_fire = false
 
@@ -1336,6 +1345,12 @@ speed = 0.1
 [node name="Enemy2" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D4/PathFollow2D" instance=ExtResource("15_n8pe0")]
 rotation = 1.55858
 
+[node name="BulletHitbox" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D4/PathFollow2D/Enemy2" index="3"]
+fadeout_time = null
+max_health = null
+hit_flash_time = null
+fadeout_enabled = null
+
 [node name="EnemyGun" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D4/PathFollow2D/Enemy2" index="5"]
 can_fire = false
 
@@ -1351,6 +1366,12 @@ speed = 0.1
 
 [node name="Enemy2" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D3/PathFollow2D" instance=ExtResource("15_n8pe0")]
 rotation = 1.55858
+
+[node name="BulletHitbox" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D3/PathFollow2D/Enemy2" index="3"]
+fadeout_time = null
+max_health = null
+hit_flash_time = null
+fadeout_enabled = null
 
 [node name="EnemyGun" parent="LevelScreen/ActivateEnemies10/EnableNodesContainer/Path2D3/PathFollow2D/Enemy2" index="5"]
 can_fire = false

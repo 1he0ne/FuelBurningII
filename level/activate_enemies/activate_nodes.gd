@@ -6,13 +6,13 @@ extends Area2D
 
 @export var disable_activation := false
 
-@onready var nodes_to_activate = $EnableNodesContainer.get_children()
+@onready var nodes_to_activate := $EnableNodesContainer.get_children()
 
 
 func _ready() -> void:
 	self.visible = true
 	
-	var has_null_element := nodes_to_activate.all(func(e): return e != null)
+	var has_null_element := nodes_to_activate.all(func(e:Node) -> float: return e != null)
 	assert(has_null_element, name + ": null element in enemies_to_activate")
 	
 	if nodes_to_activate.size() == 0:

@@ -24,6 +24,10 @@ buses/default_bus_layout="res://audioPlayer/default_bus_layout.tres"
 GameState="*res://game_state/game_state.gd"
 AudioPlayer="*res://audioPlayer/audio_player.tscn"
 
+[debug]
+
+gdscript/warnings/untyped_declaration=2
+
 [display]
 
 window/size/viewport_width=1300

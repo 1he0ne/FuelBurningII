@@ -1,12 +1,12 @@
 extends Node2D
 class_name GameEndScreen
 
-@onready var main_menu_path = "res://menu/main_menu.tscn"
-@onready var level_scene_path = "res://level/level.tscn"
+@onready var main_menu_path:String = "res://menu/main_menu.tscn"
+@onready var level_scene_path:String = "res://level/level.tscn"
 
 
 
-func _on_restart_button():
+func _on_restart_button() -> void:
 	print("clicked restart")
 	GameState.restore_default_game_state()
 	GameState.start_timer()
@@ -17,7 +17,7 @@ func _on_restart_button():
 	queue_free()
 
 
-func _on_main_menu_button():
+func _on_main_menu_button() -> void:
 	print("clicked main menu")
 	GameState.restore_default_game_state()
 	AudioPlayer.play_sfx(AudioPlayer.fuel_burning_2_sfx, 0.8)

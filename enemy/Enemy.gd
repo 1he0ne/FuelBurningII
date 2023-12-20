@@ -1,10 +1,10 @@
 extends Node
 
-var gun = null
+var gun:Node = null
 
 signal is_dying
 
-func _ready():
+func _ready() -> void:
 	gun = $EnemyGun
 
 	# Difficulty adjustment example
@@ -26,6 +26,6 @@ func _ready():
 	#delay so they do not fire before being disabled (to be enabled later) 
 	gun.start(0.1)
 
-func _on_is_dying():
+func _on_is_dying() -> void:
 	if has_meta("is_boss") && get_meta("is_boss"):
 		AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx)

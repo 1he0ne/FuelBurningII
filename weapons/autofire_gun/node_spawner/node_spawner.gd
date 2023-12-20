@@ -5,9 +5,9 @@ extends Node2D
 
 
 @export var nodeScene:PackedScene = null
-var nodeContainer = self
+var nodeContainer:Node = self
 
-func _ready():
+func _ready() -> void:
 	assert(nodeScene, name + ": you need to set the nodeScene to spawn")
 	
 	var level_bullet_container:Node = null
@@ -18,7 +18,7 @@ func _ready():
 		push_warning("nodeContainer should not be itself. Otherwise deleting the spawner will also delete the bullets")
 		
 
-func _spawn_node():
+func _spawn_node() -> void:
 	var node:Node = nodeScene.instantiate()
 	nodeContainer.add_child(node)
 	node.position = global_position
