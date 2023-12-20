@@ -10,4 +10,3 @@ metadata/_edit_vertical_guides_ = [650.0]
 
 [node name="Warningbanner" parent="." instance=ExtResource("2_fmv3u")]
 z_index = 4096
-position = Vector2(650, 575)
