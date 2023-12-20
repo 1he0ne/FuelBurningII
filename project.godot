@@ -23,7 +23,6 @@ buses/default_bus_layout="res://audioPlayer/default_bus_layout.tres"
 
 GameState="*res://game_state/game_state.gd"
 AudioPlayer="*res://audioPlayer/audio_player.tscn"
-ViewportScaler="res://viewport_scaler.gd"
 
 [display]
 

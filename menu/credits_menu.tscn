@@ -6,36 +6,46 @@
 script = ExtResource("1_s5vej")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 274.0
-offset_top = 92.0
-offset_right = 1080.0
+offset_left = 135.0
+offset_top = 14.0
+offset_right = 1247.0
 offset_bottom = 983.0
-theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Hi, glad you're here!
 
 [center]We're proud to present our game:
 ==FUEL BURNING 2==
 
-[left]
-Game design							everyone
-Programming						Tab, Edi
-Design support						Luke
-Producer/cheerleader			Harvey
-Music										Edi
-SFX											Harvey
-Graphics								Harvey 
 
-+ Assets by Kenney and Caz
-(thanks for making these available!)
+[left]
+    Programming		Vaia, Tab, and Luke
+    Design					Vaia, Tab, Luke, and Harvey
+    Music						Vaia
+    SFX							Harvey
+    Art							Harvey
+    Voices 					Harvey and Zoe
+
+
+Assets found online (CC4.0)
+
+    Boss artwork by wovado:
+		https://opengameart.org/content/vector-fighter-plane
+    Backgrounds and planes by:
+		https://www.kenney.nl/
+    Cockpit character by Caz: 
+		https://cazwolf.itch.io/pixel-charagen
+    Metal brushes by Arkyrra 
+		https://www.deviantart.com/arkyrra/art/Arc-s-Rivets-Metal-Brushes-63621015
 
 Press ESC to go back (or click the button)"
+autowrap_mode = 0
 
 [node name="Button" type="Button" parent="."]
-offset_left = 272.0
-offset_top = 988.0
-offset_right = 463.0
-offset_bottom = 1073.0
+offset_left = 149.0
+offset_top = 995.0
+offset_right = 340.0
+offset_bottom = 1080.0
 theme_override_font_sizes/font_size = 21
 text = "Back"
 

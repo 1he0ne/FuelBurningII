@@ -9,7 +9,7 @@ script = ExtResource("1_1flbk")
 offset_left = 93.0
 offset_top = 15.0
 offset_right = 1247.0
-offset_bottom = 908.0
+offset_bottom = 926.0
 theme_override_font_sizes/normal_font_size = 30
 bbcode_enabled = true
 text = "[center]Welcome to Fuel Burning 2!
@@ -34,6 +34,7 @@ shoot:					Q/X						|	X (PS) / A (Logi)
 bomb:					Shift/Ctrl			|	Square (PS) / X (Logi)
 pause game:		ESC						|	Start / Back
 "
+scroll_active = false
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
