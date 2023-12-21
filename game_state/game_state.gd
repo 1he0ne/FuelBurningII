@@ -130,6 +130,9 @@ func lose_extra_life() -> bool:
 	num_extra_lives -= 1
 	return true
 
-func seconds_to_frames(seconds: float):
-	var frames: int = roundi(seconds*60.0)
-	return frames
+func seconds_to_frames(seconds: float) -> int:
+	return roundi(seconds*EXPECTED_FPS)
+
+func frames_to_seconds(frames: float) -> float:
+	var seconds_per_frame = 1.0 / float(EXPECTED_FPS)
+	return frames * seconds_per_frame

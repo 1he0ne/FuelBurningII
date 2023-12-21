@@ -1,7 +1,7 @@
 extends Node
 
-var sfx_channels
-var channel_id_to_play_on = 0
+var sfx_channels:Array[AudioStreamPlayer]
+var channel_id_to_play_on := 0
 
 var sfx_volume = 80.0
 var bgm_volume = 80.0
