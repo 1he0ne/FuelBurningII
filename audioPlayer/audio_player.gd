@@ -4,7 +4,7 @@ var sfx_channels:Array[AudioStreamPlayer]
 var channel_id_to_play_on := 0
 
 var sfx_volume = 80.0
-var bgm_volume = 80.0
+var bgm_volume = 65.0
 
 @onready var title_music = preload("res://audioAssets/bgm/title_track_bgm.ogg")
 @onready var intro_music = preload("res://audioAssets/bgm/intro_track_bgm.ogg")
