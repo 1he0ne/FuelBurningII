@@ -1,7 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://bw6tylxvq44yt"]
+[gd_scene load_steps=15 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
-[ext_resource type="Script" path="res://character/character_collision.gd" id="2_ho6ny"]
+[ext_resource type="Script" path="res://character/character_pickup_collision.gd" id="2_04r4a"]
+[ext_resource type="Script" path="res://character/character_bullet_collision.gd" id="2_ho6ny"]
 [ext_resource type="Texture2D" uid="uid://lhrss5knnk1k" path="res://artAssets/PlayerShip/default.png" id="2_wlpm3"]
 [ext_resource type="Script" path="res://character/fire_player_guns.gd" id="3_dyaye"]
 [ext_resource type="Texture2D" uid="uid://cq8g7oyksbw30" path="res://artAssets/PlayerShip/left.png" id="3_p8jx8"]
@@ -9,6 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://artAssets/PlayerShip/right.png" id="4_qdpuo"]
 [ext_resource type="PackedScene" uid="uid://lcddkaa0xg42" path="res://character/player_bullet.tscn" id="5_r8dlp"]
 [ext_resource type="Script" path="res://character/fire_player_bomb.gd" id="10_56sne"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7ui6b"]
+size = Vector2(118, 36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d5y84"]
 size = Vector2(26, 28)
@@ -35,6 +39,17 @@ animations = [{
 
 [node name="Character" type="CharacterBody2D" groups=["player"]]
 script = ExtResource("1_iajnt")
+
+[node name="PickupHitbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("2_04r4a")
+metadata/_edit_group_ = true
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupHitbox"]
+position = Vector2(1, -4)
+shape = SubResource("RectangleShape2D_7ui6b")
 
 [node name="BulletHitbox" type="Area2D" parent="."]
 collision_layer = 0
@@ -77,4 +92,5 @@ nodeScene = ExtResource("5_r8dlp")
 [node name="FirePlayerBomb" type="Node" parent="."]
 script = ExtResource("10_56sne")
 
+[connection signal="area_entered" from="PickupHitbox" to="PickupHitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]

@@ -926,19 +926,22 @@ color = Color(0, 0, 0, 1)
 [node name="CharacterBody2D" parent="LevelScreen" instance=ExtResource("1_iaj0p")]
 position = Vector2(327, 1094)
 
-[node name="BulletHitbox" parent="LevelScreen/CharacterBody2D" index="0" node_paths=PackedStringArray("sidebar")]
+[node name="PickupHitbox" parent="LevelScreen/CharacterBody2D" index="0" node_paths=PackedStringArray("sidebar")]
 sidebar = NodePath("../../CharacterCamera/FuelScreen/SideBarCockpit")
 
-[node name="ActivateEventsHitbox" parent="LevelScreen/CharacterBody2D" index="1"]
+[node name="BulletHitbox" parent="LevelScreen/CharacterBody2D" index="1" node_paths=PackedStringArray("sidebar")]
+sidebar = NodePath("../../CharacterCamera/FuelScreen/SideBarCockpit")
+
+[node name="ActivateEventsHitbox" parent="LevelScreen/CharacterBody2D" index="2"]
 metadata/_edit_lock_ = true
 
-[node name="CharacterSprite" parent="LevelScreen/CharacterBody2D" index="2"]
+[node name="CharacterSprite" parent="LevelScreen/CharacterBody2D" index="3"]
 metadata/_edit_lock_ = true
 
-[node name="FirePlayerGuns" parent="LevelScreen/CharacterBody2D" index="3"]
+[node name="FirePlayerGuns" parent="LevelScreen/CharacterBody2D" index="4"]
 metadata/_edit_lock_ = true
 
-[node name="FirePlayerBomb" parent="LevelScreen/CharacterBody2D" index="4" node_paths=PackedStringArray("sidebar")]
+[node name="FirePlayerBomb" parent="LevelScreen/CharacterBody2D" index="5" node_paths=PackedStringArray("sidebar")]
 sidebar = NodePath("../../CharacterCamera/FuelScreen/SideBarCockpit")
 
 [node name="BulletsContainer" type="Node" parent="LevelScreen" groups=["bullets_container"]]
