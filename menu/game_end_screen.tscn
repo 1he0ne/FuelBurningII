@@ -39,12 +39,12 @@ theme_override_constants/separation = 15
 [node name="RestartButton" type="Button" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Play again!"
+text = "Play again! (shoot)"
 
 [node name="MainMenuButton" type="Button" parent="ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 35
-text = "Main Menu"
+text = "Main Menu (bomb)"
 
 [node name="GameEndMessage" type="RichTextLabel" parent="."]
 anchors_preset = 5
