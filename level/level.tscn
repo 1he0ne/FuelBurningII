@@ -9,7 +9,7 @@
 [ext_resource type="Script" path="res://level/PathFollow2D.gd" id="3_iy6oa"]
 [ext_resource type="Script" path="res://level/BulletsContainer.gd" id="3_o2pmo"]
 [ext_resource type="PackedScene" uid="uid://opaijxv11qhu" path="res://enemy/enemy.tscn" id="3_yo2l2"]
-[ext_resource type="PackedScene" uid="uid://dxidc1nd2qd0y" path="res://pickup/bomb_pickup.tscn" id="5_hnb1k"]
+[ext_resource type="PackedScene" uid="uid://dxidc1nd2qd0y" path="res://artAssets/BombPickup/bomb_pickup.tscn" id="5_hnb1k"]
 [ext_resource type="Script" path="res://level/EndArea.gd" id="7_efc5s"]
 [ext_resource type="Texture2D" uid="uid://br31nhpydnstx" path="res://level/background/tile_0042.png" id="8_ii18f"]
 [ext_resource type="Texture2D" uid="uid://camxe5r07a1ij" path="res://level/background/tiles_packed.png" id="9_bore1"]

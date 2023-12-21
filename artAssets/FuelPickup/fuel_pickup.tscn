@@ -134,7 +134,7 @@ frame = 17
 frame_progress = 0.572562
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 16
 
 [node name="PickupCollider" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_41abw")

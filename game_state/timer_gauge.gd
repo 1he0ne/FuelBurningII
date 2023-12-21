@@ -12,7 +12,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	label.text = "[center]Remaining time: %s[center]" % _frames_to_time(GameState.get_remaining_frames())
+	label.text = "[center]Remaining fuel: %s" % _frames_to_time(GameState.get_remaining_frames())
 	var degrees = _frames_to_deg(GameState.get_remaining_frames())
 	gauge_needle_shadow.rotation_degrees = degrees
 	gauge_needle.rotation_degrees = degrees

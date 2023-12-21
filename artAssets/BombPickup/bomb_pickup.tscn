@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://dxidc1nd2qd0y"]
 
 [ext_resource type="Texture2D" uid="uid://b5ny5cu2g1s44" path="res://artAssets/BombPickup/BombPickup0000.png" id="1_0f7n4"]
-[ext_resource type="Script" path="res://pickup/bomb_pickup.gd" id="1_lqvhc"]
+[ext_resource type="Script" path="res://artAssets/BombPickup/bomb_pickup.gd" id="1_lqvhc"]
 [ext_resource type="Texture2D" uid="uid://8tr2rdtir0bh" path="res://artAssets/BombPickup/BombPickup0010.png" id="2_o8rnd"]
 [ext_resource type="Texture2D" uid="uid://dhxsfumu3s4m3" path="res://artAssets/BombPickup/BombPickup0020.png" id="3_idmtd"]
 [ext_resource type="Texture2D" uid="uid://bpdia22eiiu7o" path="res://artAssets/BombPickup/BombPickup0030.png" id="4_bc7he"]
@@ -74,7 +74,7 @@ frame = 9
 frame_progress = 0.920242
 
 [node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+collision_layer = 16
 collision_mask = 0
 
 [node name="PickUpCollider" type="CollisionShape2D" parent="Area2D"]
