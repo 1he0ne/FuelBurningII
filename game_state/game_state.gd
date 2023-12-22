@@ -67,7 +67,7 @@ func lose_game() -> void:
 	
 func win_game() -> void:
 	if !is_game_over:
-		AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx)
+		AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx, 1.5)
 		var end_screen:GameEndScreen = preload("res://menu/game_end_screen.tscn").instantiate()
 		get_node(".").add_child(end_screen)
 		(end_screen.get_child(1) as RichTextLabel).text = "[center]MISSION COMPLETE!\n\nYOU WIN!!!!!"
