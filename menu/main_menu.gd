@@ -1,10 +1,10 @@
 extends Node
 
-const options_scene_path = "res://menu/options_menu.tscn"
-const credits_scene_path = "res://menu/credits_menu.tscn"
-const game_scene_path = "res://level/level.tscn"
+const options_scene_path := "res://menu/options_menu.tscn"
+const credits_scene_path := "res://menu/credits_menu.tscn"
+const game_scene_path := "res://level/level.tscn"
 
-func _ready():
+func _ready() -> void:
 	AudioPlayer.disable_lpf()
 	GameState.pause_timer()
 
@@ -20,14 +20,14 @@ func _input(event: InputEvent) -> void:
 		load_credit_scene()
 
 
-func load_game_scene():
+func load_game_scene() -> void:
 	get_tree().change_scene_to_file(game_scene_path)
 	AudioPlayer.stop_bgm()
 	AudioPlayer.play_sfx(AudioPlayer.mission_start_sfx)
 	AudioPlayer.play_bgm(AudioPlayer.game_music)
 
-func load_option_scene():
+func load_option_scene() -> void:
 	get_tree().change_scene_to_file(options_scene_path)
 	
-func load_credit_scene():
+func load_credit_scene() -> void:
 	get_tree().change_scene_to_file(credits_scene_path)

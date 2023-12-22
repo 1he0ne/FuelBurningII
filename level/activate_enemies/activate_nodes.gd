@@ -6,19 +6,19 @@ extends Area2D
 
 @export var disable_activation := false
 
-@onready var nodes_to_activate = $EnableNodesContainer.get_children()
+@onready var nodes_to_activate := $EnableNodesContainer.get_children()
 
 
 func _ready() -> void:
 	self.visible = true
 	
-	var has_null_element := nodes_to_activate.all(func(e): return e != null)
+	var has_null_element := nodes_to_activate.all(func(e: Node) -> bool: return e != null)
 	assert(has_null_element, name + ": null element in enemies_to_activate")
 	
 	if nodes_to_activate.size() == 0:
 		push_warning(name + ": no node set activate when player nearby")
 		
-	for node in nodes_to_activate:
+	for node: Node in nodes_to_activate:
 		print("removing ", node.name)
 		$EnableNodesContainer.remove_child(node)
 		
@@ -30,7 +30,7 @@ func _on_player_detection_area_entered(_area: Area2D) -> void:
 	#prevent reactivation
 	disable_activation = true
 	
-	for node in nodes_to_activate:
+	for node: Node in nodes_to_activate:
 		await get_tree().process_frame #prevent error adding child
 		$EnableNodesContainer.add_child(node)
 		

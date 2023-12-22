@@ -2,8 +2,8 @@ extends Node
 
 @export var sidebar: SideBarCockpit
 
-var bomb_explosion_sfx = preload("res://audioAssets/bombdrop1.wav")
-var bomb_not_available_sfx = preload("res://audioAssets/menuback1.wav")
+var bomb_explosion_sfx := preload("res://audioAssets/bombdrop1.wav")
+var bomb_not_available_sfx := preload("res://audioAssets/menuback1.wav")
 
 func _input(event: InputEvent) -> void:
 	if !event.is_action_pressed("fire_bomb"): return

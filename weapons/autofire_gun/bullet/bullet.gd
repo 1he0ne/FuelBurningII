@@ -4,11 +4,11 @@ class_name Bullet
 ##
 ##
 
-@export var velocity = Vector2(0.0, 5.0)
-@export var damage = float(2.0)
+@export var velocity := Vector2(0.0, 5.0)
+@export var damage := float(2.0)
 
-func _physics_process(_delta: float):
+func _physics_process(_delta: float) -> void:
 	position += velocity
 
-func _on_leave_screen():
+func _on_leave_screen() -> void:
 	queue_free()

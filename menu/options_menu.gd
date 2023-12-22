@@ -3,14 +3,14 @@ extends Node2D
 const game_scene_path = "res://level/level.tscn"
 const main_menu_scene_path = "res://menu/main_menu.tscn"
 
-var sfx_sample_sound = preload("res://audioAssets/explode1.wav")
+var sfx_sample_sound := preload("res://audioAssets/explode1.wav")
 
-@onready var sfxBar = $Control/VBoxContainer/sfx_volume_bar as ProgressBar
-@onready var bgmBar = $Control/VBoxContainer/bgm_volume_bar as ProgressBar
-@onready var selectedBar = sfxBar
+@onready var sfxBar: ProgressBar = $Control/VBoxContainer/sfx_volume_bar as ProgressBar
+@onready var bgmBar: ProgressBar = $Control/VBoxContainer/bgm_volume_bar as ProgressBar
+@onready var selectedBar := sfxBar
 
 
-func _ready():
+func _ready() -> void:
 	sfxBar.value = AudioPlayer.sfx_volume
 	bgmBar.value = AudioPlayer.bgm_volume
 	
@@ -20,9 +20,6 @@ func _ready():
 	GameState.pause_timer()
 	
 	get_tree().paused = true
-	
-
-	
 
 # Called when the node enters the scene tree for the first time.
 func _input(event: InputEvent) -> void:
@@ -49,7 +46,7 @@ func _input(event: InputEvent) -> void:
 			_on_select_bar(sfxBar)
 
 
-func _on_select_bar(bar_to_select: ProgressBar):
+func _on_select_bar(bar_to_select: ProgressBar) -> void:
 	if bar_to_select == bgmBar:
 		sfxBar.modulate = Color.WHITE
 		selectedBar = bgmBar
@@ -59,33 +56,33 @@ func _on_select_bar(bar_to_select: ProgressBar):
 		selectedBar = sfxBar
 		sfxBar.modulate = Color.AQUA
 	
-func _mod_sfx_volume(volume_to_add: float):
+func _mod_sfx_volume(volume_to_add: float) -> void:
 	AudioPlayer.sfx_volume = clampf(AudioPlayer.sfx_volume + volume_to_add, 0.0, 100.0)
 	AudioPlayer.set_sfx_volume()
 	sfxBar.value = AudioPlayer.sfx_volume
 	AudioPlayer.play_sfx(sfx_sample_sound)
 	_on_select_bar(sfxBar)
 
-func _on_sfx_minus():
+func _on_sfx_minus() -> void:
 	_mod_sfx_volume(-5.0)
 
-func _on_sfx_plus():
+func _on_sfx_plus() -> void:
 	_mod_sfx_volume(+5.0)
 
-func _on_bgm_minus():
+func _on_bgm_minus() -> void:
 	AudioPlayer.bgm_volume = clampf(AudioPlayer.bgm_volume - 5.0, 0.0, 100.0)
 	AudioPlayer.set_bgm_volume()
 	bgmBar.value = AudioPlayer.bgm_volume
 	_on_select_bar(bgmBar)
 
-func _on_bgm_plus():
+func _on_bgm_plus() -> void:
 	AudioPlayer.bgm_volume = clampf(AudioPlayer.bgm_volume + 5.0, 0.0, 100.0)
 	AudioPlayer.set_bgm_volume()
 	bgmBar.value = AudioPlayer.bgm_volume
 	_on_select_bar(bgmBar)
 
 
-func _on_back_button_pressed():
+func _on_back_button_pressed() -> void:
 	get_tree().paused = false
 	GameState.start_timer()
 	AudioPlayer.disable_lpf()

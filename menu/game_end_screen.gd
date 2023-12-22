@@ -1,8 +1,8 @@
 extends Node2D
 class_name GameEndScreen
 
-@onready var main_menu_path = "res://menu/main_menu.tscn"
-@onready var level_scene_path = "res://level/level.tscn"
+@onready var main_menu_path := "res://menu/main_menu.tscn"
+@onready var level_scene_path := "res://level/level.tscn"
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("fire_weapon"):
@@ -12,7 +12,7 @@ func _input(event: InputEvent) -> void:
 		_on_main_menu_button()
 
 
-func _on_restart_button():
+func _on_restart_button() -> void:
 	AudioPlayer.play_sfx(AudioPlayer.mission_start_sfx)
 	AudioPlayer.stop_bgm()
 	# print("clicked restart")
@@ -26,7 +26,7 @@ func _on_restart_button():
 	queue_free()
 
 
-func _on_main_menu_button():
+func _on_main_menu_button() -> void:
 	AudioPlayer.play_sfx(AudioPlayer.fuel_burning_2_sfx, 0.8)
 	AudioPlayer.stop_bgm()
 	# print("clicked main menu")
