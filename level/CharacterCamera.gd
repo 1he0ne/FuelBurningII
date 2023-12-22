@@ -1,6 +1,6 @@
 extends Camera2D
 
-func _ready():
+func _ready() -> void:
 	GameState.camera_reference = self
 
 

@@ -20,20 +20,20 @@ const left_threshold = 70
 const right_threshold = 580
 const upper_limit = -11810
 
-func _ready():
+func _ready() -> void:
 	camRef = %CharacterCamera
 	animRef = $CharacterSprite
 	
 	#enabled the hitbox
 	$ActivateEventsHitbox.visible = true
 
-func _physics_process(_delta):
+func _physics_process(_delta: float) -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Vector2(Input.get_axis("ui_left", "ui_right"),
+	var direction := Vector2(Input.get_axis("ui_left", "ui_right"),
 		Input.get_axis("ui_up", "ui_down") )
 		
-	var cam_offset_position = camRef.position.y
+	var cam_offset_position := camRef.position.y
 	
 	# update the camera, if the player moves up (but don't move it back down ever)
 	if position.y < cam_offset_position+upper_threshold:
@@ -60,5 +60,5 @@ func _physics_process(_delta):
 	
 	# print("Cam: %s | Player: %s" % [cam_offset_position, position.y])
 		
-	var _collisions = move_and_slide()
+	var _collisions := move_and_slide()
 

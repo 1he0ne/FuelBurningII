@@ -3,8 +3,7 @@ extends PathFollow2D
 ##
 ## 
 
-
-@export var speed = 0.4
+@export var speed := 0.4
 @export var delete_at_end := true
 
 
@@ -17,8 +16,7 @@ func _physics_process(delta: float) -> void:
 				child.queue_free()
 	
 
-func slowdown_path_follower_to_a_hault():
-	var tween = create_tween()
+func slowdown_path_follower_to_a_halt() -> void:
+	var tween := create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	tween.tween_property(self, "speed", 0.0, 0.5)
-	

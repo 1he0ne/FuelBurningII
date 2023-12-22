@@ -1,9 +1,9 @@
 extends Node
 #@onready var option_menu = 
 # Called when the node enters the scene tree for the first time.
-var object
+var object: Node
 
-func _ready():
+func _ready() -> void:
 	GameState.start_timer()
 	AudioPlayer.disable_lpf()
 

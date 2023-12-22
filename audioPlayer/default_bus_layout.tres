@@ -1,13 +1,7 @@
 [gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://hulunie55rmw"]
 
-[sub_resource type="GDScript" id="GDScript_8uvil"]
-script/source = "
-
-"
-
 [sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_a31nx"]
 resource_name = "LowPassFilter"
-script = SubResource("GDScript_8uvil")
 
 [resource]
 bus/1/name = &"SFX"

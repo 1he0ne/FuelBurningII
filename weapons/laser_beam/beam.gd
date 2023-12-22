@@ -5,26 +5,26 @@ extends StaticBody2D
 #Instant kills the player on beam hit. 
 #Can be set to rotated (can also be attached to a Track) 
 
-export var rotation_speed = 2.0
+@export var rotation_speed := 2.0
 
-var bright = false
-var bright_counter = 0
+var bright := false
+var bright_counter := 0
 
-var BRIGHT_COLOR = Color(1.0, 0.6, 0.3, 1.0)
-var DARK_COLOR = Color(1.0, 0.5, 0.0, 1.0)
+var BRIGHT_COLOR := Color(1.0, 0.6, 0.3, 1.0)
+var DARK_COLOR := Color(1.0, 0.5, 0.0, 1.0)
 
-var is_destroyed = false
+var is_destroyed := false
 var turret_destroyed:Texture = load("res://sprites/Turrets/turret_laser_destroyed.png")
 
-func _ready():
+func _ready() -> void:
 	$LauncherCollision/Turret.material.set_shader_param("width", 0)
 
-func _physics_process(delta):
+func _physics_process(delta: float) -> void:
 	delta *= $TimeSlowing.get_time_rate()
 
 	$LauncherCollision.rotate(rotation_speed * delta)
 
-	var cast_to = (Vector2.RIGHT * 1000.0).rotated($LauncherCollision.rotation)
+	var cast_to := (Vector2.RIGHT * 1000.0).rotated($LauncherCollision.rotation)
 
 	$RayCast2D.cast_to = cast_to
 
@@ -32,7 +32,7 @@ func _physics_process(delta):
 		$BeamGraphic.points[1] = $BeamGraphic.to_local($RayCast2D.get_collision_point())
 		$HitEffect.visible = true
 
-		var hit_body = $RayCast2D.get_collider()
+		var hit_body : CollisionShape2D = $RayCast2D.get_collider()
 		if hit_body.is_in_group("player"):
 			hit_body.lose_health(1000)
 		elif hit_body.is_in_group("LauncherCollision"):
@@ -58,7 +58,7 @@ func _physics_process(delta):
 			$BeamGraphic.default_color = DARK_COLOR
 			$HitEffect.color = DARK_COLOR
 			
-func set_destroyed():
+func set_destroyed() -> void:
 	if is_destroyed:
 		return
 	$LauncherCollision/Turret.texture = turret_destroyed
@@ -70,11 +70,11 @@ func set_destroyed():
 
 func _process(delta: float) -> void:
 	if delta != 0.0 and !is_destroyed:
-		var delta2 = delta * $TimeSlowing.get_time_rate()
+		var delta2:float = delta * $TimeSlowing.get_time_rate()
 		var percentage:float = 1 - (delta2/delta)
 		#print("percentage = ", percentage)
 		#print("linear2db = ", linear2db(percentage))
-		$Laser_hum.set_volume_db(linear2db(percentage))
+		# $Laser_hum.set_volume_db(linear2db(percentage))
 		#if percentage > 0.01: #1 = 100%
 		
 		$LauncherCollision/Turret.material.set_shader_param("width", percentage * 3)
