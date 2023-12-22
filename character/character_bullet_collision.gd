@@ -3,7 +3,7 @@ extends Area2D
 ##
 ## 
 
-@export var hit_flash_secs = 0.5
+@export var hit_flash_secs := 0.5
 @export var hit_flash_color:Color = Color.LIGHT_SLATE_GRAY
 
 @export var sidebar:SideBarCockpit
@@ -16,7 +16,7 @@ func _physics_process(_delta: float) -> void:
 	invul_frames = max(0, invul_frames - 1)
 
 func _on_area_entered(area: Area2D) -> void:
-	var bullet = area.get_parent() as Bullet
+	var bullet := area.get_parent() as Bullet
 	if(bullet):
 		do_bullet_hit_stuff()
 		bullet.queue_free()
@@ -36,8 +36,8 @@ func do_bullet_hit_stuff() -> void:
 	flash_animation(hit_flash_color, hit_flash_secs)
 	(sidebar as SideBarCockpit).show_character_damaged()
 
-func flash_animation(color:Color, flash_time:float):
-	var tween = create_tween()
+func flash_animation(color: Color, flash_time: float) -> void:
+	var tween := create_tween()
 	tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 	tween.tween_property(get_parent(), "modulate", color, flash_time/2.0)
 	tween.tween_property(get_parent(), "modulate", Color(1,1,1,1), flash_time/2.0)

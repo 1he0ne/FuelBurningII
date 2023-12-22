@@ -3,8 +3,6 @@ extends Area2D
 ##
 ## 
 
-@export var hit_flash_secs := 0.5
-@export var hit_flash_color:Color = Color.LIGHT_SLATE_GRAY
 @export var pickup_flash_secs := 0.1
 @export var pickup_flash_color:Color = Color.AQUAMARINE
 
@@ -12,14 +10,7 @@ extends Area2D
 
 var collect_pickup_sfx: AudioStreamWAV = preload("res://audioAssets/upgradecollected1.wav")
 
-func _on_area_entered(area: Area2D) -> void:
-	
-	var bullet := area.get_parent() as Bullet
-	if(bullet):
-		do_bullet_hit_stuff()
-		bullet.queue_free()
-		
-		
+func _on_area_entered(area: Area2D) -> void:		
 	var bomb_pickup := area.get_parent() as BombPickup
 	if(bomb_pickup):
 		do_bomb_pickup_stuff()
