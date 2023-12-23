@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://menu/credits.gd" id="1_s5vej"]
 
 [node name="CreditsMenu" type="Node2D"]
+visible = false
 script = ExtResource("1_s5vej")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
@@ -38,7 +39,7 @@ Assets found online (CC4.0)
     Metal brushes by Arkyrra 
 		https://www.deviantart.com/arkyrra/art/Arc-s-Rivets-Metal-Brushes-63621015
 
-Press ESC to go back (or click the button)"
+This game was made in the Godot engine: godotengine.org/license"
 autowrap_mode = 0
 
 [node name="Button" type="Button" parent="."]
