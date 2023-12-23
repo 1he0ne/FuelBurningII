@@ -2,15 +2,22 @@
 
 [ext_resource type="Script" path="res://menu/credits.gd" id="1_s5vej"]
 
-[node name="CreditsMenu" type="Node2D"]
-visible = false
+[node name="CreditsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_s5vej")
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 135.0
-offset_top = 14.0
-offset_right = 1247.0
-offset_bottom = 983.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 24
 bbcode_enabled = true
 text = "Hi, glad you're here!
@@ -28,7 +35,7 @@ text = "Hi, glad you're here!
     Voices 					Harvey and Zoe
 
 
-Assets found online (CC4.0)
+[center]Assets found online (CC4.0)
 
     Boss artwork by wovado:
 		https://opengameart.org/content/vector-fighter-plane
@@ -38,15 +45,19 @@ Assets found online (CC4.0)
 		https://cazwolf.itch.io/pixel-charagen
     Metal brushes by Arkyrra 
 		https://www.deviantart.com/arkyrra/art/Arc-s-Rivets-Metal-Brushes-63621015
+[/center]
 
-This game was made in the Godot engine: godotengine.org/license"
+[center]This game was made in the Godot engine: godotengine.org/license [/center]"
 autowrap_mode = 0
 
 [node name="Button" type="Button" parent="."]
-offset_left = 149.0
-offset_top = 995.0
-offset_right = 340.0
-offset_bottom = 1080.0
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -85.0
+offset_right = 191.0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 21
 text = "Back"
 
