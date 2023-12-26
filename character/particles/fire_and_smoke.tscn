@@ -1,0 +1,69 @@
+[gd_scene load_steps=11 format=3 uid="uid://dh85vrq5jdusp"]
+
+[sub_resource type="Gradient" id="Gradient_xbfip"]
+offsets = PackedFloat32Array(0.0504587, 0.521407, 1)
+colors = PackedColorArray(1, 0.828833, 0.21, 1, 1, 0.32549, 0.145098, 1, 1, 1, 1, 0.568627)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ue21h"]
+gradient = SubResource("Gradient_xbfip")
+
+[sub_resource type="Curve" id="Curve_0sveb"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l3v3f"]
+curve = SubResource("Curve_0sveb")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hgn6v"]
+lifetime_randomness = 0.4
+particle_flag_disable_z = true
+emission_shape = 2
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 98, 0)
+scale_min = 4.0
+scale_max = 4.0
+scale_curve = SubResource("CurveTexture_l3v3f")
+color_ramp = SubResource("GradientTexture1D_ue21h")
+turbulence_enabled = true
+turbulence_noise_scale = 2.0
+
+[sub_resource type="Gradient" id="Gradient_gqhku"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6y4fu"]
+gradient = SubResource("Gradient_gqhku")
+
+[sub_resource type="Curve" id="Curve_luv13"]
+_data = [Vector2(0, 1), 0.0, -22.7287, 0, 0, Vector2(1, 0), -1.37774, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_xfeb4"]
+curve = SubResource("Curve_luv13")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_irol0"]
+particle_flag_disable_z = true
+angular_velocity_max = 10.0
+gravity = Vector3(0, 98, 0)
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_xfeb4")
+color_ramp = SubResource("GradientTexture1D_6y4fu")
+turbulence_enabled = true
+turbulence_noise_speed_random = 2.0
+turbulence_influence_min = 1.0
+turbulence_influence_max = 1.0
+turbulence_initial_displacement_min = 2.0
+turbulence_initial_displacement_max = 6.0
+
+[node name="Damage" type="Node2D"]
+
+[node name="Fire" type="GPUParticles2D" parent="."]
+amount = 2
+process_material = SubResource("ParticleProcessMaterial_hgn6v")
+lifetime = 0.1
+trail_lifetime = 0.1
+
+[node name="Smoke" type="GPUParticles2D" parent="."]
+position = Vector2(0, 4)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_irol0")
+lifetime = 0.5
+speed_scale = 5.0
