@@ -10,8 +10,14 @@ var max_rotation := 135.0
 func _ready() -> void:
 	GameState.start_timer()
 
-func _process(_delta: float) -> void:
-	label.text = "[center]Remaining time: %s[center]" % _frames_to_time(GameState.get_remaining_frames())
+func _physics_process(_delta: float) -> void:
+	var time_remaining:String = _frames_to_time(GameState.get_remaining_frames())
+	
+	if GameState.frames_to_seconds(GameState.get_remaining_frames()) > 5.0:
+		label.text = "[center]Remaining time: %s[center]" % time_remaining
+	else:
+		label.text = "[center]Remaining time: [color=red]%s[/color][center] " % time_remaining 
+		
 	var degrees := _frames_to_deg(GameState.get_remaining_frames())
 	gauge_needle_shadow.rotation_degrees = degrees
 	gauge_needle.rotation_degrees = degrees
