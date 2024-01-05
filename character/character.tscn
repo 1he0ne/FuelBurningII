@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bw6tylxvq44yt"]
+[gd_scene load_steps=16 format=3 uid="uid://bw6tylxvq44yt"]
 
 [ext_resource type="Script" path="res://character/character.gd" id="1_iajnt"]
 [ext_resource type="Script" path="res://character/character_pickup_collision.gd" id="2_04r4a"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://33h6hprg16xj" path="res://artAssets/PlayerShip/right.png" id="4_qdpuo"]
 [ext_resource type="PackedScene" uid="uid://lcddkaa0xg42" path="res://character/player_bullet.tscn" id="5_r8dlp"]
 [ext_resource type="Script" path="res://character/fire_player_bomb.gd" id="10_56sne"]
+[ext_resource type="PackedScene" uid="uid://dh85vrq5jdusp" path="res://character/particles/fire_and_smoke.tscn" id="11_ar7bx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ui6b"]
 size = Vector2(118, 36)
@@ -57,6 +58,7 @@ shape = SubResource("RectangleShape2D_7ui6b")
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("2_ho6ny")
+damage_particles_scene = ExtResource("11_ar7bx")
 metadata/_edit_group_ = true
 metadata/_edit_lock_ = true
 
@@ -93,6 +95,9 @@ nodeScene = ExtResource("5_r8dlp")
 
 [node name="FirePlayerBomb" type="Node" parent="."]
 script = ExtResource("10_56sne")
+
+[node name="DamagesContainer" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
 
 [connection signal="area_entered" from="PickupHitbox" to="PickupHitbox" method="_on_area_entered"]
 [connection signal="area_entered" from="BulletHitbox" to="BulletHitbox" method="_on_area_entered"]

@@ -1,4 +1,4 @@
-extends Node
+extends Control
 
 const main_menu_scene_path = "res://menu/main_menu.tscn"
 
