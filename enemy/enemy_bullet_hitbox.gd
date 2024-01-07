@@ -27,7 +27,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if !is_alive:
 		return
 		
-	print("enemy hit")
+	#print("enemy hit")
 	hit_cue.instantiate_playback()
 		
 	var bullet_that_hit: Bullet = area.get_parent() as Bullet

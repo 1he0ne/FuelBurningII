@@ -32,7 +32,7 @@ func _on_area_entered(area: Area2D) -> void:
 			add_damage_particles(bullet.position)
 			do_bullet_hit_stuff()
 		bullet.queue_free()
-	print("player was hit by %s" % area.get_parent().name)
+	#print("player was hit by %s" % area.get_parent().name)
 	
 
 func _set_invul_frames_if_hit(num_frames: int) -> void:
@@ -41,9 +41,9 @@ func _set_invul_frames_if_hit(num_frames: int) -> void:
 
 func do_bullet_hit_stuff() -> void:
 	_set_invul_frames_if_hit(GameState.seconds_to_frames(0.5))
-	var is_alive := GameState.lose_extra_life()
 	AudioPlayer.play_sfx(lose_life_sfx)
-	print("Character lost an extra life (%s left) still alive = %s" % [GameState.num_extra_lives, is_alive])
+	var _is_alive := GameState.lose_extra_life()
+	#print("Character lost an extra life (%s left) still alive = %s" % [GameState.num_extra_lives, is_alive])
 	flash_animation(hit_flash_color, hit_flash_secs)
 	(sidebar as SideBarCockpit).show_character_damaged()
 
@@ -55,7 +55,7 @@ func flash_animation(color: Color, flash_time: float) -> void:
 	
 
 func add_damage_particles(bullet_position:Vector2) -> void:
-	print("bullet_position: ", bullet_position)
+	#print("bullet_position: ", bullet_position)
 	var _local_bullet_position := to_local(bullet_position)
 	var damage_x := _local_bullet_position.x
 	var smoke := damage_particles_scene.instantiate()
