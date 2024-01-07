@@ -29,3 +29,12 @@ func _ready() -> void:
 func _on_is_dying() -> void:
 	if has_meta("is_boss") && get_meta("is_boss"):
 		AudioPlayer.play_sfx(AudioPlayer.mission_compree_sfx)
+
+
+func _on_screen_exited() -> void:
+	gun.stop()
+	
+
+func _on_screen_entered() -> void:
+	gun.start(0.1)
+	
