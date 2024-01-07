@@ -15,11 +15,14 @@ func _ready() -> void:
 	var has_null_element := nodes_to_activate.all(func(e: Node) -> bool: return e != null)
 	assert(has_null_element, name + ": null element in enemies_to_activate")
 	
+	if disable_activation:
+		push_warning(name + ": activation is disabled")
+	
 	if nodes_to_activate.size() == 0:
 		push_warning(name + ": no node set activate when player nearby")
 		
 	for node: Node in nodes_to_activate:
-		print("removing ", node.name)
+		#print("removing ", node.name)
 		$EnableNodesContainer.remove_child(node)
 		
 
