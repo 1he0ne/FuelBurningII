@@ -12,7 +12,7 @@ extends Node
 @onready var DEFAULT_FRAMES_ON_GAME_START := MAX_FRAMES
 
 @onready var DEFAULT_BOMB_COUNT := 1
-@onready var DEFAULT_EXTRA_LIVES := 3
+@onready var DEFAULT_EXTRA_LIVES := 5
 
 ########### Variables
 
