@@ -3,12 +3,12 @@ extends PathFollow2D
 ##
 ## 
 
-@export var speed := 0.4
+@export var speed := 300
 @export var delete_at_end := true
 
 
 func _physics_process(delta: float) -> void:
-	progress_ratio += delta * speed
+	progress += delta * speed
 	
 	if delete_at_end:
 		if is_equal_approx(progress_ratio, 1.0):
