@@ -18,7 +18,7 @@ const lower_threshold = 1080
 # how far the player may use left/right
 const left_threshold = 70
 const right_threshold = 580
-const upper_limit = -11810
+const upper_limit = -13780
 
 func _ready() -> void:
 	camRef = %CharacterCamera
