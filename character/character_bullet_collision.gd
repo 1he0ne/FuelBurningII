@@ -4,6 +4,8 @@ extends Area2D
 ##
 
 
+const MAX_DAMAGE_PARTICLE_EMITTERS = 5
+
 @export var hit_flash_secs := 0.5
 @export var hit_flash_color:Color = Color.LIGHT_SLATE_GRAY
 
@@ -55,7 +57,15 @@ func flash_animation(color: Color, flash_time: float) -> void:
 func add_damage_particles(bullet_position:Vector2) -> void:
 	print("bullet_position: ", bullet_position)
 	var _local_bullet_position := to_local(bullet_position)
-	var damage_x = _local_bullet_position.x
+	var damage_x := _local_bullet_position.x
 	var smoke := damage_particles_scene.instantiate()
 	smoke.position = Vector2(damage_x, 0)
-	$"../DamagesContainer".add_child(smoke)
+	
+	var damagesContainer := $"../DamagesContainer" as Node2D
+	damagesContainer.add_child(smoke)
+	
+	if damagesContainer.get_child_count() > MAX_DAMAGE_PARTICLE_EMITTERS:
+		var oldest:Node2D = damagesContainer.get_child(0)
+		damagesContainer.remove_child(oldest)
+		oldest.queue_free()
+		
